@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Locker · Painel</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22slBg%22%20x1%3D%226%22%20y1%3D%224%22%20x2%3D%2258%22%20y2%3D%2260%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%233f5bb5%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2326306b%22/%3E%3C/linearGradient%3E%3ClinearGradient%20id%3D%22slShine%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23fff%22%20stop-opacity%3D%22.12%22/%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%23fff%22%20stop-opacity%3D%220%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22url%28%23slBg%29%22/%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22url%28%23slShine%29%22/%3E%3Cpath%20d%3D%22M12.5%2017.5%20L22%2022.5%20Q32%2018.5%2042%2022.5%20L51.5%2017.5%20L49.5%2030%20Q51%2035%2051%2040%20Q51%2053%2032%2053.5%20Q13%2053%2013%2040%20Q13%2035%2014.5%2030%20Z%22%20fill%3D%22%23fff%22/%3E%3Cpath%20d%3D%22M13.3%2037%20Q19%2039%2021%2047.5%20Q15%2047%2013.3%2041%20Z%22%20fill%3D%22%23d5daea%22/%3E%3Cpath%20d%3D%22M50.7%2037%20Q45%2039%2043%2047.5%20Q49%2047%2050.7%2041%20Z%22%20fill%3D%22%23d5daea%22/%3E%3Ccircle%20cx%3D%2224.6%22%20cy%3D%2232%22%20r%3D%228.6%22%20fill%3D%22%23eef1f7%22/%3E%3Ccircle%20cx%3D%2239.4%22%20cy%3D%2232%22%20r%3D%228.6%22%20fill%3D%22%23eef1f7%22/%3E%3Ccircle%20cx%3D%2224.6%22%20cy%3D%2232%22%20r%3D%226%22%20fill%3D%22%231f2547%22/%3E%3Ccircle%20cx%3D%2239.4%22%20cy%3D%2232%22%20r%3D%226%22%20fill%3D%22%231f2547%22/%3E%3Ccircle%20cx%3D%2224.6%22%20cy%3D%2232%22%20r%3D%222.9%22%20fill%3D%22%237fb6d6%22/%3E%3Ccircle%20cx%3D%2239.4%22%20cy%3D%2232%22%20r%3D%222.9%22%20fill%3D%22%237fb6d6%22/%3E%3Ccircle%20cx%3D%2226%22%20cy%3D%2230.4%22%20r%3D%221.4%22%20fill%3D%22%23fff%22/%3E%3Ccircle%20cx%3D%2240.8%22%20cy%3D%2230.4%22%20r%3D%221.4%22%20fill%3D%22%23fff%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2240.2%22%20r%3D%222.2%22%20fill%3D%22%23d9a441%22/%3E%3Cpath%20d%3D%22M30.7%2041.3h2.6l.9%204.3h-4.4z%22%20fill%3D%22%23d9a441%22/%3E%3Cpath%20d%3D%22M27%2049.3q1.6%201.3%203.2%200M33.8%2049.3q1.6%201.3%203.2%200%22%20fill%3D%22none%22%20stroke%3D%22%23c3cadc%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070a12; --bg2:#0c111c; --glass:rgba(17,24,38,.72); --card:#111827; --card2:#172033; --line:rgba(148,163,184,.12); --line2:rgba(148,163,184,.2);
+  --tx:#e8edf6; --mut:#94a3b8; --mut2:#64748b;
+  --pri:#6f8fd9; --pri2:#4f6cc2; --priS:rgba(111,143,217,.13);
+  --ok:#3c9a6e; --okT:#6cc196; --okS:rgba(60,154,110,.14); --bad:#c95454; --badT:#e08585; --badS:rgba(201,84,84,.13);
+  --warn:#c99536; --warnT:#dcb36a; --warnS:rgba(201,149,54,.13); --vio:#9790c9; --vioS:rgba(151,144,201,.13);
+  --r:18px; --sh:0 1px 0 rgba(255,255,255,.04) inset,0 10px 30px rgba(0,0,0,.28);
+  --mesh1:rgba(90,110,170,.07); --mesh2:rgba(120,115,170,.05); --mesh3:rgba(60,154,110,.03);
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#f3f6fb; --bg2:#ffffff; --glass:rgba(255,255,255,.8); --card:#ffffff; --card2:#f6f8fc; --line:rgba(15,23,42,.08); --line2:rgba(15,23,42,.14);
+  --tx:#0f172a; --mut:#5b6b82; --mut2:#8a98ad; --pri:#3f5fb8; --pri2:#344f9c; --priS:rgba(63,95,184,.09);
+  --ok:#2f8a5f; --okT:#2b7a55; --bad:#b94545; --badT:#a63d3d; --warn:#b07e22; --warnT:#8a6418;
+  --sh:0 1px 2px rgba(15,23,42,.04),0 8px 24px rgba(15,23,42,.06);
+  --mesh1:rgba(63,95,184,.05); --mesh2:rgba(120,115,170,.04); --mesh3:rgba(47,138,95,.03);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+html,body{margin:0;color:var(--tx);font:14px/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+#bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none}
+body:before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;
+  background:radial-gradient(40% 35% at 15% 10%,var(--mesh1),transparent 70%),radial-gradient(35% 30% at 90% 0%,var(--mesh2),transparent 70%),radial-gradient(40% 40% at 70% 100%,var(--mesh3),transparent 70%);
+  animation:drift 30s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate3d(3%,2%,0) scale(1.05)}}
+button,input,select{font:inherit;color:inherit}
+code,.mono{font-family:"JetBrains Mono",ui-monospace,Consolas,monospace;font-size:12.5px}
+svg{flex:none}
+::selection{background:var(--priS)}
+.app{display:grid;grid-template-columns:248px 1fr;min-height:calc(100vh - 64px)}
+/* ---------- Navbar ---------- */
+.navbar{position:sticky;top:0;z-index:30;height:64px;display:flex;align-items:center;gap:12px;padding:0 18px 0 16px;background:color-mix(in srgb,var(--bg2) 78%,transparent);backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid var(--line)}
+.navbar .sp{flex:1}
+.nb-brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--tx);width:222px;flex:none}
+.nb-name b{display:block;font-size:15px;letter-spacing:-.01em;line-height:1.2}.nb-name small{display:block;color:var(--mut);font-size:11.5px;line-height:1.2}
+.nb-search{display:flex;align-items:center;gap:10px;width:min(440px,30vw);padding:9px 12px;border-radius:12px;border:1px solid var(--line2);background:var(--card2);color:var(--mut2);cursor:pointer;text-align:left;transition:.15s}
+.nb-search:hover{border-color:var(--mut2);color:var(--mut)}
+.nb-search span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nb-search kbd{font:600 10.5px Inter;border:1px solid var(--line2);border-radius:5px;padding:1px 6px;color:var(--mut2)}
+.nb-tools{display:flex;gap:6px;padding-left:4px}
+.nb-tools .btn{width:38px;height:38px}
+.nb-user{display:flex;align-items:center;gap:10px;padding-left:14px;margin-left:2px;border-left:1px solid var(--line2);height:36px}
+.burger{display:none}
+.sect{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--mut2);font-weight:650;padding:2px 12px 10px}
+.scrim{display:none}
+.app{transition:grid-template-columns .3s cubic-bezier(.2,.8,.2,1)}
+@media (min-width:821px){
+  .app.mini-side{grid-template-columns:78px 1fr}
+  .mini-side .nav{font-size:0;justify-content:center;gap:0;padding:11px 0}
+  .mini-side .nav kbd,.mini-side .sect,.mini-side .side .foot{display:none}
+  .mini-side .nav .cnt{position:absolute;top:5px;right:12px;font-size:10px;padding:0 5px}
+}
+
+/* ---------- Sidebar ---------- */
+.side{background:color-mix(in srgb,var(--bg2) 70%,transparent);backdrop-filter:blur(2px);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:64px;height:calc(100vh - 64px);display:flex;flex-direction:column;gap:4px;z-index:5}
+.brand{display:flex;align-items:center;gap:11px;padding:4px 8px 20px}
+.logo{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,.25);flex:none}.logo svg{display:block}
+
+.brand b{font-size:15px;display:block;letter-spacing:-.01em}.brand small{color:var(--mut);font-size:12px}
+.nav{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:12px;color:var(--mut);cursor:pointer;border:0;background:none;width:100%;text-align:left;font-weight:500;position:relative;transition:.15s}
+.nav:hover{background:var(--priS);color:var(--tx)}
+.nav.on{background:var(--priS);color:var(--tx)}
+.nav.on:before{content:"";position:absolute;left:-14px;top:9px;bottom:9px;width:3px;border-radius:3px;background:var(--pri)}
+.nav .cnt{margin-left:auto;background:var(--bad);color:#fff;font-size:11px;font-weight:700;border-radius:99px;padding:1px 7px}
+.nav kbd{margin-left:auto;font:600 10.5px Inter;color:var(--mut2);border:1px solid var(--line2);border-radius:5px;padding:1px 5px}
+.side .foot{margin-top:auto;display:flex;flex-direction:column;gap:10px}
+.side .logo{display:none}
+.mini{padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--glass);font-size:12.5px;color:var(--mut)}
+.mini b{color:var(--tx)}
+.tools{display:flex;gap:6px}
+.tools .btn{flex:1}
+
+/* ---------- Main ---------- */
+.main{padding:24px 30px 70px;min-width:0;max-width:1500px}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.top h1{font-size:24px;margin:0;font-weight:800;letter-spacing:-.02em}
+.top .sub{color:var(--mut);font-size:13px}
+.top .sp{flex:1}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:99px;border:1px solid var(--line2);background:var(--glass);backdrop-filter:blur(12px);font-size:12.5px;color:var(--mut);white-space:nowrap;font-weight:500}
+.chip b{color:var(--tx);font-weight:600}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--mut2);flex:none}
+.dot.ok{background:var(--ok);animation:ping 2.4s infinite}
+.dot.bad{background:var(--bad)}
+.dot.warn{background:var(--warn)}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(60,154,110,.35)}80%,100%{box-shadow:0 0 0 6px rgba(60,154,110,0)}}
+.live{color:var(--okT);font-weight:700;letter-spacing:.08em;font-size:11px}
+
+.view{display:none}.view.on{display:block;animation:fade .3s cubic-bezier(.2,.7,.2,1)}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}}
+.grid{display:grid;gap:16px}
+.two{grid-template-columns:1.55fr 1fr;align-items:start}
+.card{background:var(--glass);backdrop-filter:blur(1.5px);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--sh);min-width:0;position:relative}
+.card h2{font-size:14px;margin:0 0 16px;font-weight:650;display:flex;align-items:center;gap:8px;letter-spacing:-.005em}
+.card h2 .r{margin-left:auto;font-weight:400;color:var(--mut);font-size:12.5px}
+.mut{color:var(--mut)}.small{font-size:12.5px}
+
+/* ---------- Overview layout ---------- */
+.ov-grid{display:grid;gap:16px;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-areas:"net net k1 k2" "net net k3 k4";margin-bottom:16px}
+.a-net{grid-area:net}.a-k1{grid-area:k1}.a-k2{grid-area:k2}.a-k3{grid-area:k3}.a-k4{grid-area:k4}
+
+/* Connection hero */
+.net{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;overflow:hidden}
+.net:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(60% 80% at 0% 0%,var(--netGlow,transparent),transparent 70%)}
+.gauge{position:relative;width:170px;height:170px}
+.gauge svg{width:100%;height:100%;transform:rotate(135deg)}
+.gauge .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.gauge .pct{font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.gauge .lbl{font-size:12px;color:var(--mut);margin-top:4px}
+.arc{transition:stroke-dasharray .8s cubic-bezier(.2,.7,.2,1),stroke .4s}
+.ssid{font-size:26px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;flex-wrap:wrap;word-break:break-word}
+.kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 18px;margin-top:16px}
+.kv div{min-width:0}.kv span{display:block;font-size:11.5px;color:var(--mut2);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.kv b{font-weight:600;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.spark{width:100%;height:46px;display:block;margin-top:14px}
+
+/* KPI */
+.kpi{display:flex;flex-direction:column;gap:4px;overflow:hidden}
+.kpi .lb{color:var(--mut);font-size:12.5px;display:flex;align-items:center;gap:9px;font-weight:500}
+.kpi .v{font-size:32px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;margin-top:6px}
+.kpi .d{font-size:12.5px;color:var(--mut)}
+.ico{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;flex:none}
+.i-pri{background:var(--priS);color:var(--pri)}.i-ok{background:var(--okS);color:var(--ok)}.i-bad{background:var(--badS);color:var(--bad)}.i-vio{background:var(--vioS);color:var(--vio)}.i-warn{background:var(--warnS);color:var(--warn)}
+
+/* Alerts */
+.alert{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:var(--r);border:1px solid var(--line2);border-left:4px solid var(--warn);background:var(--glass);margin-bottom:16px;animation:fade .3s}
+.alert b{display:block}.alert .sp{flex:1}
+.alert.bad{border-left-color:var(--bad)}
+
+/* Lockers */
+.lockers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.door{border:1px solid var(--line2);border-radius:16px;padding:16px;background:linear-gradient(180deg,color-mix(in srgb,var(--card2) 90%,transparent),color-mix(in srgb,var(--card) 70%,transparent));display:flex;flex-direction:column;gap:10px;position:relative;transition:border-color .3s,box-shadow .3s,transform .3s}
+.door.open{border-color:color-mix(in srgb,var(--ok) 55%,transparent);box-shadow:0 0 0 3px var(--okS)}
+.door.flash{animation:flash 1.2s}
+@keyframes flash{0%{transform:scale(1)}15%{transform:scale(1.035)}30%{transform:scale(1)}}
+.door .hd{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.door .num{font-size:11px;color:var(--mut2);font-weight:700;letter-spacing:.08em}
+.door .n{font-size:28px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.door .lock{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--card2);border:1px solid var(--line2);color:var(--mut);transition:.3s}
+.door.open .lock{color:var(--ok);background:var(--okS);border-color:color-mix(in srgb,var(--ok) 45%,transparent)}
+.door .who{font-size:12.5px;color:var(--mut);min-height:38px}
+.door .who b{color:var(--tx);font-weight:600}
+.bar{height:4px;border-radius:4px;background:var(--line2);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ok);border-radius:4px;width:100%}
+
+/* Badges & buttons */
+.b{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:650;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.b-ok{background:var(--okS);color:var(--okT)}.b-bad{background:var(--badS);color:var(--badT)}.b-mut{background:rgba(148,163,184,.13);color:var(--mut)}
+.b-warn{background:var(--warnS);color:var(--warnT)}.b-pri{background:var(--priS);color:var(--pri)}.b-vio{background:var(--vioS);color:var(--vio)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--line2);background:var(--card2);padding:8px 14px;border-radius:11px;cursor:pointer;font-weight:550;transition:.15s;white-space:nowrap}
+.btn:hover{border-color:var(--mut2);transform:translateY(-1px)}
+.btn:active{transform:none}
+.btn.pri{background:var(--pri2);border-color:var(--pri2);color:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.btn.pri:hover{background:var(--pri);border-color:var(--pri)}
+.btn.bad{color:var(--badT);border-color:color-mix(in srgb,var(--bad) 40%,transparent);background:var(--badS)}
+.btn.ghost{background:none;border-color:transparent;color:var(--mut)}.btn.ghost:hover{color:var(--tx);background:var(--card2)}
+.btn.sm{padding:6px 11px;font-size:12.5px;border-radius:9px}
+.btn.icon{padding:7px;border-radius:10px}
+.btn.on{color:var(--pri);border-color:color-mix(in srgb,var(--pri) 45%,transparent);background:var(--priS)}
+.btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+/* Inputs */
+.in{background:var(--card2);border:1px solid var(--line2);border-radius:11px;padding:9px 12px;outline:none;min-width:0;transition:.15s}
+.in:focus{border-color:var(--pri);box-shadow:0 0 0 4px var(--priS)}
+.in:disabled{opacity:.6}
+.search{position:relative}.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--mut2)}.search .in{padding-left:36px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.f{display:flex;flex-direction:column;gap:6px;font-size:12.5px;color:var(--mut);font-weight:550}
+
+/* Switch & perm chips */
+.sw{position:relative;width:40px;height:23px;flex:none;display:inline-block}
+.sw input{opacity:0;width:0;height:0;position:absolute}
+.sw span{position:absolute;inset:0;background:var(--line2);border-radius:99px;transition:.2s;cursor:pointer}
+.sw span:before{content:"";position:absolute;width:17px;height:17px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.25s cubic-bezier(.3,1.4,.5,1);box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.sw input:checked+span{background:var(--ok)}.sw input:checked+span:before{transform:translateX(17px)}
+.sw.danger input:checked+span{background:var(--bad)}
+.perms{display:inline-flex;gap:5px}
+.pc{width:34px;height:30px;border-radius:9px;border:1px solid var(--line2);background:var(--card2);color:var(--mut2);font-size:12.5px;font-weight:700;cursor:pointer;transition:.15s}
+.pc.on{background:var(--priS);border-color:color-mix(in srgb,var(--pri) 55%,transparent);color:var(--pri)}
+.pc:hover{border-color:var(--mut2)}
+
+/* Tables */
+.tw{overflow:auto;margin:0 -20px -20px;border-top:1px solid var(--line)}
+table{width:100%;border-collapse:collapse}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut2);font-weight:650;text-align:left;padding:11px 16px;background:color-mix(in srgb,var(--bg2) 85%,transparent);position:sticky;top:0;z-index:1;white-space:nowrap;backdrop-filter:blur(10px)}
+td{padding:12px 16px;border-top:1px solid var(--line);vertical-align:middle}
+tbody tr,table tr{transition:background .2s}
+tr:hover td{background:rgba(148,163,184,.04)}
+tr.new td{animation:rownew 2.5s}
+@keyframes rownew{0%{background:var(--priS)}100%{background:transparent}}
+.user{display:flex;align-items:center;gap:12px}
+.av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:13px;flex:none;color:#fff;box-shadow:0 0 0 2px var(--card)}
+.user b{display:block;font-weight:600}.user small{color:var(--mut)}
+.inactive td{opacity:.5}
+.empty{text-align:center;color:var(--mut);padding:36px 10px}
+
+/* Feed */
+.feed{display:flex;flex-direction:column}
+.fi{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px solid var(--line)}
+.fi:first-child{border-top:0;padding-top:0}
+.fi.new{animation:slidein .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes slidein{from{opacity:0;transform:translateX(-10px)}}
+.fi .t{flex:1;min-width:0}.fi .t b{font-weight:600}
+.fi .tm{color:var(--mut2);font-size:12px;white-space:nowrap}
+
+/* Chart */
+.chart{width:100%;height:220px;display:block}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--mut)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px}
+
+/* Unknown cards */
+.uk{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.ukc{border:1px dashed color-mix(in srgb,var(--warn) 45%,transparent);border-radius:14px;padding:14px;background:var(--card2);display:flex;flex-direction:column;gap:10px}
+
+/* Config */
+.cfg{display:flex;align-items:center;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.cfg:first-of-type{border-top:0;padding-top:0}
+.cfg .t{flex:1}.cfg .t b{display:block;font-weight:600}.cfg .t span{color:var(--mut);font-size:12.5px}
+input[type=range]{accent-color:var(--pri);width:180px}
+.big{font-size:22px;font-weight:800;min-width:50px;text-align:right}
+.dev{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.dev div{padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--card2)}
+.dev span{display:block;font-size:11.5px;color:var(--mut2);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.dev b{font-weight:600;word-break:break-all}
+
+/* Modals, live banner, toasts */
+.ov{position:fixed;inset:0;background:rgba(3,6,12,.6);backdrop-filter:blur(6px);display:none;align-items:flex-start;justify-content:center;z-index:50;padding:12vh 16px 16px}
+.ov.on{display:flex;animation:fadeo .2s}
+@keyframes fadeo{from{opacity:0}}
+.modal{background:var(--card);border:1px solid var(--line2);border-radius:20px;width:100%;max-width:470px;padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.45);animation:pop .25s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes pop{from{opacity:0;transform:scale(.96) translateY(8px)}}
+.modal h3{margin:0 0 4px;font-size:19px;letter-spacing:-.01em}.modal p{margin:0 0 18px;color:var(--mut)}
+.modal .fs{display:flex;flex-direction:column;gap:14px}
+.modal .act{display:flex;justify-content:flex-end;gap:10px;margin-top:22px}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.pbig{padding:12px 6px;border-radius:14px;border:1px solid var(--line2);background:var(--card2);cursor:pointer;text-align:center;color:var(--mut);font-weight:700;font-size:17px;transition:.15s;user-select:none}
+.pbig.on{border-color:var(--pri);background:var(--priS);color:var(--pri)}
+.pbig small{display:block;font-weight:500;font-size:11px;margin-top:2px;opacity:.85}
+.cmdk{max-width:560px;padding:0;overflow:hidden}
+.cmdk .in{border:0;border-bottom:1px solid var(--line);border-radius:0;padding:16px 18px;font-size:15px;width:100%;background:transparent;box-shadow:none}
+.cmdk .list{max-height:50vh;overflow:auto;padding:8px}
+.cmdk .it{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;cursor:pointer}
+.cmdk .it.sel,.cmdk .it:hover{background:var(--priS)}
+.cmdk .it small{margin-left:auto;color:var(--mut2)}
+.cmdk .grp{font-size:11px;color:var(--mut2);text-transform:uppercase;letter-spacing:.07em;font-weight:650;padding:10px 12px 4px}
+
+.livebanner{position:fixed;top:18px;left:50%;transform:translate(-50%,-150%);z-index:70;display:flex;align-items:center;gap:14px;padding:14px 18px 14px 14px;border-radius:18px;min-width:320px;max-width:calc(100vw - 32px);
+  background:var(--card);border:1px solid var(--line2);border-left:4px solid var(--ok);box-shadow:0 16px 40px rgba(0,0,0,.35);transition:transform .5s cubic-bezier(.2,.9,.3,1.15)}
+.livebanner.on{transform:translate(-50%,0)}
+.livebanner.bad{border-left-color:var(--bad)}
+.livebanner .big-ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center}
+.livebanner b{display:block;font-size:15.5px}.livebanner span{color:var(--mut);font-size:13px}
+.toasts{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:8px;z-index:60}
+.toast{background:var(--card);border:1px solid var(--line2);border-left:3px solid var(--pri);padding:11px 14px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.3);min-width:240px;max-width:380px;animation:fade .25s}
+.toast.ok{border-left-color:var(--ok)}.toast.bad{border-left-color:var(--bad)}
+.spin{width:13px;height:13px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:sp .7s linear infinite;display:inline-block}
+@keyframes sp{to{transform:rotate(360deg)}}
+.skel{background:linear-gradient(90deg,var(--card2),var(--line2),var(--card2));background-size:200% 100%;animation:sk 1.2s infinite;border-radius:8px;color:transparent!important}
+@keyframes sk{to{background-position:-200% 0}}
+
+[hidden]{display:none!important}
+.user small{display:block}
+/* ---------- Login ---------- */
+.login{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:16px;background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(6px)}
+.login.on{display:flex}
+.login .box{width:100%;max-width:400px;background:var(--card);border:1px solid var(--line2);border-radius:20px;padding:28px;box-shadow:0 30px 80px rgba(0,0,0,.4);animation:pop .3s}
+.login .hd{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.login .hd b{font-size:18px;display:block}.login .hd small{color:var(--mut)}
+.login .err{color:var(--badT);font-size:13px;min-height:18px}
+.login details{margin-top:16px;font-size:12.5px;color:var(--mut)}
+.login summary{cursor:pointer}
+/* ---------- Relatórios ---------- */
+.hbar{display:grid;grid-template-columns:140px 1fr 44px;gap:10px;align-items:center;padding:6px 0;font-size:13px}
+.hbar .tr{height:10px;border-radius:6px;background:var(--line);overflow:hidden}.hbar .tr i{display:block;height:100%;border-radius:6px;background:var(--pri)}
+.hbar span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hbar span:last-child{text-align:right;font-variant-numeric:tabular-nums;color:var(--mut)}
+.heat{display:grid;grid-template-columns:34px repeat(24,1fr);gap:3px;font-size:10px;color:var(--mut2)}
+.heat i{aspect-ratio:1;border-radius:3px;background:var(--line)}
+.k4r{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--mut);margin-top:3px}
+.dchips{display:flex;gap:5px;flex-wrap:wrap}
+.dchip{width:36px;height:32px;border-radius:9px;border:1px solid var(--line2);background:var(--card2);color:var(--mut2);font-weight:650;cursor:pointer;font-size:12px}
+.dchip.on{background:var(--priS);color:var(--pri);border-color:color-mix(in srgb,var(--pri) 55%,transparent)}
+.two-in{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.modal{max-height:86vh;overflow:auto}
+.ov{padding-top:6vh}
+@media print{.navbar,.side,.toasts,.livebanner,#bgfx,.noprint{display:none!important}.app{display:block}.view{display:none!important}#v-relatorios{display:block!important}.card{break-inside:avoid;background:#fff!important;color:#000;border-color:#ccc;box-shadow:none;backdrop-filter:none}html,body{background:#fff!important;color:#000}}
+/* ---------- Responsive ---------- */
+@media (max-width:1180px){.nb-user .nb-name,.nb-search span{display:none}.nb-search{width:auto}}
+@media (max-width:1250px){.k4r{grid-template-columns:repeat(2,minmax(0,1fr))}.ov-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"net net" "k1 k2" "k3 k4"}.two{grid-template-columns:1fr}}
+@media (max-width:820px){
+  .app{grid-template-columns:1fr}
+  .burger{display:inline-flex}
+  .nb-brand{width:auto}.nb-brand .nb-name small,.nb-user,.nb-search span,.nb-search kbd,#chipLive{display:none}
+  .nb-search{width:38px;height:38px;padding:0;justify-content:center}
+  .chip{padding:8px}.chip>span:last-child{display:none}
+  .nb-tools .btn:not(#btnTheme){display:none}
+  .navbar{gap:8px;padding:0 10px}
+  .side{position:fixed;top:64px;left:0;bottom:0;height:auto;width:270px;z-index:40;transform:translateX(-102%);transition:transform .3s cubic-bezier(.2,.8,.2,1);background:var(--bg2);box-shadow:20px 0 60px rgba(0,0,0,.35)}
+  .side.open{transform:none}
+  .scrim{display:block;position:fixed;inset:64px 0 0 0;background:rgba(3,6,12,.5);z-index:35;opacity:0;pointer-events:none;transition:opacity .3s}
+  .scrim.on{opacity:1;pointer-events:auto}
+  .nav.on:before{display:none}
+  .main{padding:18px 16px 70px}
+  .lockers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .door .num{font-size:0}.door .num:after{content:"COMP.";font-size:11px}
+  .door .lock{width:38px;height:38px;border-radius:11px}
+  .door{padding:13px}
+  .net{grid-template-columns:1fr;justify-items:center;text-align:center}.ssid{justify-content:center}.kv{grid-template-columns:repeat(2,minmax(0,1fr));text-align:left}
+  .dev{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="bgfx" aria-hidden="true"></canvas>
+<header class="navbar">
+  <button class="btn icon ghost burger" id="btnMenu" title="Menu" aria-label="Abrir menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  <a class="nb-brand" href="#" data-go="geral" title="Smart Locker"><span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40" aria-label="Smart Locker" role="img"><defs><linearGradient id="slBgA" x1="6" y1="4" x2="58" y2="60" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3f5bb5"/><stop offset="1" stop-color="#26306b"/></linearGradient><linearGradient id="slShineA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".12"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#slBgA)"/><rect width="64" height="64" rx="16" fill="url(#slShineA)"/><path d="M12.5 17.5 L22 22.5 Q32 18.5 42 22.5 L51.5 17.5 L49.5 30 Q51 35 51 40 Q51 53 32 53.5 Q13 53 13 40 Q13 35 14.5 30 Z" fill="#fff"/><path d="M13.3 37 Q19 39 21 47.5 Q15 47 13.3 41 Z" fill="#d5daea"/><path d="M50.7 37 Q45 39 43 47.5 Q49 47 50.7 41 Z" fill="#d5daea"/><circle cx="24.6" cy="32" r="8.6" fill="#eef1f7"/><circle cx="39.4" cy="32" r="8.6" fill="#eef1f7"/><circle cx="24.6" cy="32" r="6" fill="#1f2547"/><circle cx="39.4" cy="32" r="6" fill="#1f2547"/><circle cx="24.6" cy="32" r="2.9" fill="#7fb6d6"/><circle cx="39.4" cy="32" r="2.9" fill="#7fb6d6"/><circle cx="26" cy="30.4" r="1.4" fill="#fff"/><circle cx="40.8" cy="30.4" r="1.4" fill="#fff"/><circle cx="32" cy="40.2" r="2.2" fill="#d9a441"/><path d="M30.7 41.3h2.6l.9 4.3h-4.4z" fill="#d9a441"/><path d="M27 49.3q1.6 1.3 3.2 0M33.8 49.3q1.6 1.3 3.2 0" fill="none" stroke="#c3cadc" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nb-name"><b>Smart Locker</b><small>Painel de controle</small></span></a>
+  <button class="nb-search" id="btnK" title="Buscar (Ctrl + K)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Buscar usuário, compartimento…</span><kbd>Ctrl K</kbd></button>
+  <div class="sp"></div>
+  <span class="chip" id="chipLive"><span class="dot"></span><span>Conectando…</span></span>
+  <span class="chip" id="chipWifi"><span class="dot"></span><span>ESP32</span></span>
+  <div class="nb-tools">
+    <button class="btn icon" id="btnSound" title="Som ao liberar acesso"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></button>
+    <button class="btn icon" id="btnNotif" title="Avisos do Windows"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg></button>
+    <button class="btn icon" id="btnTheme" title="Tema claro/escuro"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+  </div>
+  <div class="nb-user" id="nbUser" title="Sair"><span class="av" style="background:#4f6cc2" id="uAv">AD</span><span class="nb-name"><b id="uName">Admin</b><small id="uMail">Administrador</small></span><button class="btn icon ghost" id="btnLogout" title="Sair" hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg></button></div>
+</header>
+<div class="app">
+  <aside class="side" id="side">
+    <div class="sect">Menu</div>
+    <button class="nav on" data-v="geral"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Visão geral<kbd>1</kbd></button>
+    <button class="nav" data-v="usuarios"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M17 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-4-6.3"/></svg>Usuários<span class="cnt" id="navUk" hidden></span></button>
+    <button class="nav" data-v="eventos"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>Eventos<kbd>3</kbd></button>
+    <button class="nav" data-v="relatorios"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg>Relatórios<kbd>4</kbd></button>
+    <button class="nav" data-v="dispositivo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>Dispositivo<kbd>5</kbd></button>
+    <button class="nav" data-v="config"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Configurações<kbd>6</kbd></button>
+    <div class="foot"><div class="mini" id="sideFoot">Conectando…</div></div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <main class="main">
+    <div class="top">
+      <div><h1 id="title">Visão geral</h1><div class="sub" id="subtitle">Monitoramento em tempo real do armário</div></div>
+    </div>
+
+    <!-- ================= VISÃO GERAL ================= -->
+    <section class="view on" id="v-geral">
+      <div id="banners"></div>
+      <div class="ov-grid">
+        <div class="card net a-net" id="netCard">
+          <div class="gauge">
+            <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="84" fill="none" stroke="var(--line2)" stroke-width="14" stroke-linecap="round" stroke-dasharray="395.8 527.8"/><circle class="arc" id="arc" cx="100" cy="100" r="84" fill="none" stroke="var(--ok)" stroke-width="14" stroke-linecap="round" stroke-dasharray="0 527.8"/></svg>
+            <div class="c"><div class="pct" id="gPct">—</div><div class="lbl" id="gLbl">sinal Wi-Fi</div></div>
+          </div>
+          <div style="min-width:0">
+            <div class="small mut" style="display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:11.5px"><span class="dot" id="netDot"></span><span id="netState">Verificando conexão…</span></div>
+            <div class="ssid" id="netSsid"><span class="skel">Carregando</span></div>
+            <div class="kv">
+              <div><span>Endereço IP</span><b class="mono" id="nIp">—</b></div>
+              <div><span>Sinal</span><b id="nRssi">—</b></div>
+              <div><span>Ligado há</span><b id="nUp">—</b></div>
+              <div><span>Último contato</span><b id="nLast">—</b></div>
+              <div><span>Quedas de Wi-Fi</span><b id="nDrops">—</b></div>
+              <div><span>Eventos na fila</span><b id="nQueue">—</b></div>
+            </div>
+            <svg class="spark" id="spark" preserveAspectRatio="none"></svg>
+          </div>
+        </div>
+        <div class="card kpi a-k1"><div class="lb"><span class="ico i-ok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 7.7-1.5"/></svg></span>Aberturas hoje</div><div class="v" id="kOk">—</div><div class="d" id="kOkD">—</div></div>
+        <div class="card kpi a-k2"><div class="lb"><span class="ico i-bad"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Negados hoje</div><div class="v" id="kBad">—</div><div class="d" id="kBadD">—</div></div>
+        <div class="card kpi a-k3"><div class="lb"><span class="ico i-vio"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/></svg></span>Usuários ativos</div><div class="v" id="kUsers">—</div><div class="d" id="kUsersD">—</div></div>
+        <div class="card kpi a-k4"><div class="lb"><span class="ico i-pri"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/></svg></span>Último acesso</div><div class="v" id="kLast" style="font-size:22px;margin-top:10px">—</div><div class="d" id="kLastD">—</div></div>
+      </div>
+
+      <div class="card" style="margin-bottom:16px">
+        <h2>Compartimentos <span class="r">Fecham sozinhos após <b id="tAb">5</b> s</span></h2>
+        <div class="lockers" id="lockers"></div>
+      </div>
+
+      <div class="grid two">
+        <div class="card">
+          <h2>Atividade nas últimas 24 horas <span class="r legend"><span><i style="background:var(--ok)"></i>Aberturas</span><span><i style="background:var(--bad)"></i>Negados</span></span></h2>
+          <svg class="chart" id="chart"></svg>
+        </div>
+        <div class="card">
+          <h2>Ao vivo <span class="r"><button class="btn ghost sm" data-go="eventos">Ver tudo →</button></span></h2>
+          <div class="feed" id="feed"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= USUÁRIOS ================= -->
+    <section class="view" id="v-usuarios">
+      <div class="card" id="ukCard" style="margin-bottom:16px;display:none">
+        <h2><span class="ico i-warn" style="width:28px;height:28px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span>Cartões aguardando cadastro <span class="r">Passaram no leitor e não estão cadastrados</span></h2>
+        <div class="uk" id="ukList"></div>
+      </div>
+      <div class="card">
+        <h2>Usuários cadastrados <span class="r" id="uCount"></span></h2>
+        <div class="row" style="margin-bottom:16px">
+          <div class="search" style="flex:1;min-width:200px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input class="in" id="uSearch" placeholder="Buscar por nome ou UID" style="width:100%"></div>
+          <select class="in" id="uPerfil"><option value="">Todos os perfis</option><option value="admin">Admin</option><option value="professor">Professor</option><option value="tecnico">Técnico</option><option value="aluno">Aluno</option></select>
+          <button class="btn pri" id="btnNew"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Novo usuário</button>
+        </div>
+        <div class="tw"><table id="tUsers"></table></div>
+      </div>
+    </section>
+
+    <!-- ================= EVENTOS ================= -->
+    <section class="view" id="v-eventos">
+      <div class="card">
+        <h2>Histórico de eventos <span class="r" id="evCount"></span></h2>
+        <div class="row" style="margin-bottom:16px">
+          <div class="search" style="flex:1;min-width:200px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input class="in" id="fUser" placeholder="Usuário ou UID" style="width:100%"></div>
+          <select class="in" id="fPer"><option value="1">Hoje</option><option value="7">Últimos 7 dias</option><option value="0" selected>Todo o período</option></select>
+          <select class="in" id="fComp"><option value="">Todos os compartimentos</option><option value="c1">Compartimento 1</option><option value="c2">Compartimento 2</option><option value="c3">Compartimento 3</option><option value="c4">Compartimento 4</option></select>
+          <select class="in" id="fRes"><option value="">Todos os resultados</option><option value="ok">Aberturas</option><option value="negado">Negados</option><option value="sistema">Sistema</option></select>
+          <button class="btn" id="btnCsv"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Exportar CSV</button>
+        </div>
+        <div class="tw" style="max-height:640px"><table id="tEv"></table></div>
+      </div>
+    </section>
+
+    <!-- ================= RELATÓRIOS ================= -->
+    <section class="view" id="v-relatorios">
+      <div class="row noprint" style="margin-bottom:16px">
+        <select class="in" id="rPer"><option value="7">Últimos 7 dias</option><option value="30" selected>Últimos 30 dias</option><option value="0">Todo o período</option></select>
+        <div class="sp" style="flex:1"></div>
+        <button class="btn" id="btnPrint"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Imprimir / salvar PDF</button>
+      </div>
+      <div class="grid k4r" style="margin-bottom:16px" id="rKpis"></div>
+      <div class="grid two" style="margin-bottom:16px">
+        <div class="card"><h2>Aberturas por usuário</h2><div id="rUsers"></div></div>
+        <div class="card"><h2>Aberturas por compartimento</h2><div id="rComps"></div></div>
+      </div>
+      <div class="grid two">
+        <div class="card"><h2>Horários de pico <span class="r">aberturas por dia e hora</span></h2><div class="heat" id="rHeat"></div></div>
+        <div class="card"><h2>Acessos negados por motivo</h2><div id="rNeg"></div></div>
+      </div>
+    </section>
+
+    <!-- ================= DISPOSITIVO ================= -->
+    <section class="view" id="v-dispositivo">
+      <div class="grid two">
+        <div class="card">
+          <h2>Rede Wi-Fi <span class="r" id="dWifiState"></span></h2>
+          <div class="dev" id="devWifi"></div>
+          <h2 style="margin-top:22px">Qualidade do sinal <span class="r">últimos minutos</span></h2>
+          <svg class="chart" id="rssiChart" style="height:180px"></svg>
+        </div>
+        <div class="card">
+          <h2>ESP32</h2>
+          <div class="dev" id="devEsp"></div>
+          <h2 style="margin-top:22px">Testar fechaduras <span class="r">gira o servo e volta</span></h2>
+          <div class="row" id="testBtns">
+            <button class="btn sm" data-test="c1">C1 · D27</button><button class="btn sm" data-test="c2">C2 · D14</button><button class="btn sm" data-test="c3">C3 · D12</button><button class="btn sm" data-test="c4">C4 · D13</button>
+          </div>
+          <p class="small mut" style="margin:16px 0 0">O ESP32 envia esses dados a cada 10 segundos. Se ele ficar mais de 30 s sem enviar, o painel mostra <b>offline</b>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONFIG ================= -->
+    <section class="view" id="v-config">
+      <div class="grid two">
+        <div class="card">
+          <h2>Funcionamento do armário</h2>
+          <div class="cfg"><div class="t"><b>Tempo de abertura</b><span>Quanto tempo a trava fica aberta antes de fechar sozinha</span></div><input type="range" id="cTempo" min="2" max="30"><div class="big" id="cTempoV">5s</div></div>
+          <div class="cfg"><div class="t"><b>Acesso sem internet</b><span>Se o Wi-Fi cair, o ESP32 usa a última cópia das permissões</span></div><label class="sw"><input type="checkbox" id="cOff"><span></span></label></div>
+          <div class="cfg"><div class="t"><b style="color:var(--badT)">Bloqueio geral</b><span>Nega todos os acessos, inclusive de administradores</span></div><label class="sw danger"><input type="checkbox" id="cBloq"><span></span></label></div>
+          <div class="row" style="justify-content:flex-end;margin-top:6px"><button class="btn pri" id="btnCfg">Salvar configurações</button></div>
+        </div>
+        <div class="grid" style="align-content:start">
+          <div class="card">
+            <h2>Conexão com o Firebase</h2>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <label class="f">URL do Realtime Database<input class="in mono" id="cUrl"></label>
+              <label class="f">Chave da API Web (login de administrador)<input class="in mono" id="cKey" placeholder="AIza… (Configurações do projeto → Geral)"></label>
+              <label class="f">Segredo do banco (opcional, sem login)<input class="in" id="cSec" type="password" placeholder="deixe vazio se usar login"></label>
+              <div class="row" style="justify-content:flex-end"><button class="btn" id="btnCon">Reconectar</button></div>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Manutenção</h2>
+            <div class="row">
+              <button class="btn" id="btnSeed">Criar dados de exemplo</button>
+              <button class="btn bad" id="btnClearEv">Apagar histórico</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Banner ao vivo -->
+<div class="livebanner" id="live"><div class="big-ico" id="liveIco"></div><div><b id="liveT"></b><span id="liveS"></span></div></div>
+
+<!-- Modal usuário -->
+<div class="ov" id="mUser"><div class="modal">
+  <h3 id="mTitle">Novo usuário</h3><p id="mSub">Cadastre o cartão RFID e escolha os compartimentos liberados.</p>
+  <div class="fs">
+    <label class="f">UID do cartão<input class="in mono" id="mUid" placeholder="ex.: 611AE7A9" maxlength="20"></label>
+    <label class="f">Nome<input class="in" id="mNome" placeholder="Nome da pessoa" maxlength="40"></label>
+    <label class="f">Perfil<select class="in" id="mPerfil"><option value="aluno">Aluno</option><option value="professor">Professor</option><option value="tecnico">Técnico</option><option value="admin">Admin</option></select></label>
+    <div class="f">Compartimentos liberados
+      <div class="pgrid" id="mPerms"></div>
+      <div class="row"><button class="btn ghost sm" id="mAll">Marcar todos</button><button class="btn ghost sm" id="mNone">Nenhum</button></div>
+    </div>
+    <div class="f">Horário de acesso <span class="mut" style="font-weight:400">(vazio = qualquer horário)</span>
+      <div class="two-in"><input class="in" type="time" id="mIni"><input class="in" type="time" id="mFim"></div>
+    </div>
+    <div class="f">Dias permitidos <span class="mut" style="font-weight:400">(nenhum marcado = todos)</span>
+      <div class="dchips" id="mDias"></div>
+    </div>
+    <label class="f">Válido até <span class="mut" style="font-weight:400">(vazio = sem data de expiração)</span><input class="in" type="date" id="mVal"></label>
+  </div>
+  <div class="act"><button class="btn" data-close>Cancelar</button><button class="btn pri" id="mSave">Salvar</button></div>
+</div></div>
+
+<!-- Login -->
+<div class="login" id="login"><form class="box" id="loginForm" autocomplete="on">
+  <div class="hd"><span class="logo" id="loginLogo"></span><div><b>Smart Locker</b><small>Entre com a conta de administrador</small></div></div>
+  <div class="fs" style="display:flex;flex-direction:column;gap:12px">
+    <label class="f">E-mail<input class="in" id="lEmail" type="email" autocomplete="username" required></label>
+    <label class="f">Senha<input class="in" id="lPass" type="password" autocomplete="current-password" required></label>
+    <div class="err" id="lErr"></div>
+    <button class="btn pri" type="submit" id="lBtn">Entrar</button>
+  </div>
+  <details><summary>Configurar conexão com o Firebase</summary>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+      <label class="f">URL do Realtime Database<input class="in mono" id="lUrl"></label>
+      <label class="f">Chave da API Web<input class="in mono" id="lKey" placeholder="AIza…"></label>
+    </div>
+  </details>
+</form></div>
+
+<!-- Modal confirmação -->
+<div class="ov" id="mConf"><div class="modal" style="max-width:410px">
+  <h3 id="cfT">Confirmar</h3><p id="cfP"></p>
+  <div class="act"><button class="btn" data-close>Cancelar</button><button class="btn bad" id="cfOk">Confirmar</button></div>
+</div></div>
+
+<!-- Paleta de comandos -->
+<div class="ov" id="mK"><div class="modal cmdk">
+  <input class="in" id="kIn" placeholder="Buscar usuário, abrir compartimento, ir para…" autocomplete="off">
+  <div class="list" id="kList"></div>
+</div></div>
+
+<div class="toasts" id="toasts"></div>
+
+<script>
+"use strict";
+/* =================== Configuração =================== */
+const DEFAULT_URL = "https://SEU-PROJETO-default-rtdb.firebaseio.com";   // troque pela URL do seu Realtime Database
+const DEFAULT_API_KEY = "";   // preenchido pelo PUBLICAR-PAINEL (chave da API Web do Firebase - não é segredo)
+const COMPS = ["c1","c2","c3","c4"];
+const ONLINE_S = 30;               // sem status por mais que isso = offline
+const $ = id => document.getElementById(id);
+let BASE = "", SECRET = "", data = {}, editing = null, cfgDirty = false;
+let es = null, streamOpen = false, ready = false, pollTimer = null, lastStatusRx = 0;
+const seenEv = new Set(), freshEv = new Set(), rssiHist = [];
+let unread = 0, flashDoor = null;
+const prefs = { sound: store("som") !== "0", notif: store("notif") === "1", theme: store("tema") || "dark" };
+
+/* =================== Utilidades =================== */
+function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v); }catch(e){ return null; } }
+function esc(s){ return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function toast(t, kind=""){ const el=document.createElement("div"); el.className="toast "+kind; el.textContent=t; $("toasts").appendChild(el); setTimeout(()=>el.remove(),3800); }
+const COLORS = ["#4f6cc2","#6e66a8","#2f8a5f","#a77d2c","#9a5674","#2f7f7b","#a5633a","#3d7896"];
+function avatar(nome, uid, size){ const ini=(nome||"?").split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase(); let h=0; for(const c of String(uid)) h=(h*31+c.charCodeAt(0))>>>0; return `<span class="av" style="background:${COLORS[h%COLORS.length]};${size?`width:${size}px;height:${size}px;font-size:${size*.36}px`:""}">${esc(ini)}</span>`; }
+const PERFIL = {admin:["Admin","b-vio"],professor:["Professor","b-pri"],tecnico:["Técnico","b-warn"],aluno:["Aluno","b-mut"]};
+function perfilBadge(p){ const x=PERFIL[p]||[p||"—","b-mut"]; return `<span class="b ${x[1]}">${esc(x[0])}</span>`; }
+function parseLocal(s){ if(!s || !/^\d{4}-\d\d-\d\d \d\d:\d\d:\d\d$/.test(s)) return null; return new Date(s.replace(" ","T")+"-04:00"); }   // horário de Manaus
+function evTime(e){ if(typeof e.servidorTs==="number") return e.servidorTs; if(e.epoch>0) return e.epoch*1000; const d=parseLocal(e.horario); return d?d.getTime():0; }
+function rel(ms){ if(!ms) return "—"; const s=Math.round((Date.now()-ms)/1000); if(s<5) return "agora"; if(s<60) return `há ${s}s`; if(s<3600) return `há ${Math.floor(s/60)} min`; if(s<86400) return `há ${Math.floor(s/3600)} h`; return new Date(ms).toLocaleDateString("pt-BR"); }
+function fmt(ms){ return ms ? new Date(ms).toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit"}) : "—"; }
+function dur(s){ if(s==null) return "—"; s=Math.floor(s); const d=Math.floor(s/86400), h=Math.floor(s%86400/3600), m=Math.floor(s%3600/60); return d?`${d}d ${h}h`:h?`${h}h ${m}min`:m?`${m} min`:`${s}s`; }
+const startOfDay = () => { const d=new Date(); d.setHours(0,0,0,0); return d.getTime(); };
+const compNome = c => c && c!=="-" ? "Compartimento " + String(c).replace("c","") : "";
+const isNeg = e => String(e.resultado||"").startsWith("negado");
+const isOpen = e => String(e.operacao||"").startsWith("abertura") && !isNeg(e);
+const pctFromRssi = r => r==null ? 0 : Math.max(0, Math.min(100, 2*(r+100)));
+const sigLabel = p => p>=70?"Excelente":p>=50?"Bom":p>=30?"Fraco":"Muito fraco";
+const sigColor = p => p>=50?"var(--ok)":p>=30?"var(--warn)":"var(--bad)";
+function countUp(el, to){ const from=+el.dataset.v||0; el.dataset.v=to; if(from===to){ el.textContent=to; return; } const t0=performance.now(); const step=t=>{ const k=Math.min(1,(t-t0)/600); el.textContent=Math.round(from+(to-from)*(1-Math.pow(1-k,3))); if(k<1) requestAnimationFrame(step); }; requestAnimationFrame(step); }
+
+const IC = {
+  bad:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>',
+  lock:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>',
+  unlock:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 7.7-1.5"/></svg>',
+  card:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/></svg>',
+  sys:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/></svg>',
+  alert:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>',
+  wifi:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01"/></svg>',
+  wifiBig:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01"/></svg>',
+  wifiOff:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2 2l20 20M8.5 16a5 5 0 0 1 7 0M5 12.5a10 10 0 0 1 4.6-2.6M12 19.5h.01M16.7 10.4A10 10 0 0 1 19 12.5M2 8.8a15 15 0 0 1 4.2-2.7M10.7 5.1A15 15 0 0 1 22 8.8"/></svg>',
+  lockBig:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14.5v2.5"/></svg>',
+  unlockBig:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 7.7-1.5"/><path d="M12 14.5v2.5"/></svg>',
+  edit:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>',
+  trash:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>',
+  go:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+};
+
+function classify(e){
+  const r=String(e.resultado||""), op=e.operacao||"";
+  if(op==="alerta_seguranca") return {icon:IC.alert,cls:"i-bad",badge:"b-bad",txt:"Alerta de segurança"};
+  if(op==="teste_servo") return {icon:IC.sys,cls:"i-pri",badge:"b-pri",txt:"Teste da fechadura"};
+  if(r.startsWith("negado")){
+    const why={negado_cartao_desconhecido:"Cartão não cadastrado",negado_sem_permissao:"Sem permissão",negado_sem_permissoes:"Sem nenhuma permissão",negado_usuario_inativo:"Usuário desativado",negado_sistema_bloqueado:"Armário bloqueado",negado_sem_dados:"Sem conexão",negado_fora_do_horario:"Fora do horário",negado_cartao_expirado:"Cartão expirado",negado_sem_horario:"Relógio sem hora"}[r]||"Negado";
+    return {icon:IC.bad,cls:"i-bad",badge:"b-bad",txt:why};
+  }
+  if(op==="abertura_remota") return {icon:IC.unlock,cls:"i-ok",badge:"b-ok",txt:"Abriu pelo painel"};
+  if(op==="abertura") return {icon:IC.unlock,cls:"i-ok",badge:"b-ok",txt:"Abriu"};
+  if(op==="fechamento") return {icon:IC.lock,cls:"i-pri",badge:"b-mut",txt:"Fechou"};
+  if(op==="identificacao") return {icon:IC.card,cls:"i-vio",badge:"b-vio",txt:"Cartão aceito"};
+  if(op==="inicializacao") return {icon:IC.wifi,cls:"i-pri",badge:"b-mut",txt:"ESP32 ligado"};
+  return {icon:IC.sys,cls:"i-pri",badge:"b-mut",txt:op||r||"evento"};
+}
+function eventos(){ return Object.entries(data.eventos||{}).map(([k,v])=>({k,...v,ts:evTime(v)})).sort((a,b)=>b.ts-a.ts); }
+const nomeDe = e => e.usuario && !["-","desconhecido","sistema","auto"].includes(e.usuario) ? e.usuario : null;
+
+/* =================== Login (Firebase Authentication) =================== */
+let API_KEY = "", AUTH = null, refreshTimer = null;   // AUTH = {idToken, refreshToken, exp, email}
+function loadAuth(){ try{ AUTH = JSON.parse(store("auth")||"null"); }catch(e){ AUTH=null; } }
+function saveAuth(){ store("auth", AUTH ? JSON.stringify(AUTH) : ""); }
+function authToken(){ return AUTH && AUTH.idToken ? AUTH.idToken : (SECRET || ""); }
+function showLogin(msg){
+  $("lUrl").value = BASE; $("lKey").value = API_KEY; $("lErr").textContent = msg||"";
+  if(!$("loginLogo").innerHTML) $("loginLogo").innerHTML = document.querySelector(".nb-brand .logo").innerHTML;
+  stopPolling(); if(es) es.close();
+  $("login").classList.add("on"); setTimeout(()=>$("lEmail").focus(),50);
+}
+function setUserUI(){
+  const e = AUTH && AUTH.email;
+  $("uName").textContent = e ? e.split("@")[0] : "Admin";
+  $("uMail").textContent = e ? e : (API_KEY ? "não conectado" : "sem login");
+  $("uAv").textContent = (e ? e[0] : "A").toUpperCase() + (e ? (e.split("@")[0][1]||"").toUpperCase() : "D");
+  $("btnLogout").hidden = !e;
+}
+const AUTH_MSG = {EMAIL_NOT_FOUND:"E-mail não cadastrado",INVALID_PASSWORD:"Senha incorreta",INVALID_LOGIN_CREDENTIALS:"E-mail ou senha incorretos",USER_DISABLED:"Usuário desativado",TOO_MANY_ATTEMPTS_TRY_LATER:"Muitas tentativas. Aguarde um pouco.",INVALID_EMAIL:"E-mail inválido",API_KEY_INVALID:"Chave da API inválida",CONFIGURATION_NOT_FOUND:"Ative o login por e-mail/senha no Firebase",OPERATION_NOT_ALLOWED:"Ative o login por e-mail/senha no Firebase"};
+async function login(email, pass){
+  const r = await fetch("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key="+encodeURIComponent(API_KEY),
+    {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email,password:pass,returnSecureToken:true})});
+  const j = await r.json();
+  if(!r.ok){ const code=(j.error&&j.error.message||"").split(" ")[0]; throw new Error(AUTH_MSG[code]||code||"Falha no login"); }
+  AUTH = {idToken:j.idToken, refreshToken:j.refreshToken, exp:Date.now()+(+j.expiresIn-60)*1000, email:j.email};
+  saveAuth(); scheduleRefresh(); setUserUI();
+}
+async function refreshAuth(){
+  if(!AUTH || !AUTH.refreshToken || !API_KEY) return false;
+  try{
+    const r = await fetch("https://securetoken.googleapis.com/v1/token?key="+encodeURIComponent(API_KEY),
+      {method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"grant_type=refresh_token&refresh_token="+encodeURIComponent(AUTH.refreshToken)});
+    const j = await r.json(); if(!r.ok) throw 0;
+    AUTH = {...AUTH, idToken:j.id_token, refreshToken:j.refresh_token, exp:Date.now()+(+j.expires_in-60)*1000};
+    saveAuth(); scheduleRefresh(); return true;
+  }catch(e){ AUTH=null; saveAuth(); setUserUI(); return false; }
+}
+function scheduleRefresh(){ clearTimeout(refreshTimer); if(!AUTH) return; refreshTimer=setTimeout(async()=>{ if(await refreshAuth()) connectStream(); else showLogin("Sua sessão expirou. Entre novamente."); }, Math.max(5000, AUTH.exp-Date.now())); }
+function logout(){ AUTH=null; saveAuth(); setUserUI(); if(es) es.close(); stopPolling(); data={}; schedule(); showLogin("Você saiu."); }
+async function ensureAuth(){
+  // sem chave de API = modo aberto (regras de teste ou segredo do banco)
+  if(!API_KEY){ setUserUI(); return true; }
+  if(AUTH && AUTH.exp > Date.now()+5000){ scheduleRefresh(); setUserUI(); return true; }
+  if(AUTH && await refreshAuth()){ setUserUI(); return true; }
+  setUserUI(); showLogin(); return false;
+}
+$("loginForm").addEventListener("submit", async ev=>{
+  ev.preventDefault(); $("lErr").textContent=""; $("lBtn").disabled=true; $("lBtn").textContent="Entrando…";
+  const nb=$("lUrl").value.trim().replace(/\/+$/,""), nk=$("lKey").value.trim();
+  if(nb) { BASE=nb; store("fbUrl",BASE); $("cUrl").value=BASE; }
+  API_KEY=nk; store("apiKey",API_KEY); $("cKey").value=API_KEY;
+  try{
+    if(!API_KEY) throw new Error("Informe a chave da API Web em “Configurar conexão”");
+    await login($("lEmail").value.trim(), $("lPass").value);
+    $("lPass").value=""; $("login").classList.remove("on"); toast("Bem-vindo, "+AUTH.email,"ok"); connectStream();
+  }catch(e){ $("lErr").textContent=e.message; }
+  $("lBtn").disabled=false; $("lBtn").textContent="Entrar";
+});
+$("btnLogout").onclick=e=>{ e.stopPropagation(); confirmar("Sair do painel?","Você vai precisar do e-mail e da senha para entrar de novo.","Sair",logout); };
+function authFail(){ if(API_KEY){ refreshAuth().then(ok=>ok?connectStream():showLogin("Faça login para acessar o armário.")); } else showLogin("O banco exige login. Configure a chave da API e entre com a conta de administrador."); }
+
+/* =================== Firebase: tempo real (SSE) =================== */
+function url(path){ const t=authToken(); return BASE + path + ".json" + (t ? "?auth="+encodeURIComponent(t) : ""); }
+async function fb(method, path, body){
+  const r = await fetch(url(path), {method, headers:{"Content-Type":"application/json"}, body: body===undefined?undefined:JSON.stringify(body)});
+  if(r.status===401){ authFail(); throw new Error("sem permissão – faça login"); }
+  if(!r.ok) throw new Error("HTTP "+r.status+" – "+(await r.text()));
+  return r.json();
+}
+async function act(fn, ok){ try{ await fn(); if(ok) toast(ok,"ok"); if(!streamOpen) await poll(); return true; }catch(e){ toast("Erro: "+e.message,"bad"); return false; } }
+
+function setAt(path, val){
+  const parts=path.split("/").filter(Boolean);
+  if(!parts.length){ data = (val && typeof val==="object") ? val : {}; return; }
+  let o=data; for(let i=0;i<parts.length-1;i++){ if(!o[parts[i]] || typeof o[parts[i]]!=="object") o[parts[i]]={}; o=o[parts[i]]; }
+  const k=parts[parts.length-1]; if(val===null) delete o[k]; else o[k]=val;
+}
+function onChange(path, val, isPatch){
+  // descobre eventos novos (o ESP32 cria em /eventos/<id>)
+  const items = [];
+  if(isPatch){ for(const k in val) items.push([(path==="/"?"":path)+"/"+k, val[k]]); } else items.push([path, val]);
+  for(const [p,v] of items){
+    if(isPatch) setAt(p, v);
+    const m = p.match(/^\/eventos\/([^/]+)$/);
+    if(m && v && ready && !seenEv.has(m[1])){ seenEv.add(m[1]); freshEv.add(m[1]); onNewEvent(v); }
+    else if(p==="/eventos" && v && ready){ for(const k in v) if(!seenEv.has(k)){ seenEv.add(k); freshEv.add(k); onNewEvent(v[k]); } }
+    if(ready && p.startsWith("/status")) lastStatusRx = Date.now();
+  }
+  if(!isPatch) setAt(path, val);
+  if(path==="/"){ Object.keys(data.eventos||{}).forEach(k=>seenEv.add(k)); ready = true; }
+  trackRssi(); schedule();
+}
+function connectStream(){
+  if(es) es.close(); streamOpen=false; ready=false; seenEv.clear();
+  setChip("chipLive","warn","Conectando…");
+  try{ es = new EventSource(url("/locker")); }catch(e){ startPolling(); return; }
+  es.addEventListener("open", ()=>{ streamOpen=true; stopPolling(); setChip("chipLive","ok",'<span class="live">AO VIVO</span>'); });
+  es.addEventListener("put", ev=>{ const d=JSON.parse(ev.data); onChange(d.path, d.data, false); });
+  es.addEventListener("patch", ev=>{ const d=JSON.parse(ev.data); onChange(d.path, d.data, true); });
+  es.addEventListener("cancel", ()=>{ setChip("chipLive","bad","Acesso negado ao banco"); es.close(); authFail(); });
+  es.addEventListener("auth_revoked", async()=>{ es.close(); if(await refreshAuth()) connectStream(); else authFail(); });
+  es.onerror = ()=>{ streamOpen=false; setChip("chipLive","warn","Reconectando…"); startPolling(); };
+}
+async function poll(){
+  try{ const d=(await fb("GET","/locker"))||{};
+    if(ready){ for(const k in (d.eventos||{})) if(!seenEv.has(k)){ seenEv.add(k); freshEv.add(k); onNewEvent(d.eventos[k]); } }
+    else { Object.keys(d.eventos||{}).forEach(k=>seenEv.add(k)); ready=true; }
+    data=d; trackRssi(); schedule();
+    if(!streamOpen) setChip("chipLive","warn","Atualizando a cada 3 s");
+  }catch(e){ setChip("chipLive","bad","Sem conexão com o Firebase"); }
+}
+function startPolling(){ if(!pollTimer){ poll(); pollTimer=setInterval(poll,3000); } }
+function stopPolling(){ clearInterval(pollTimer); pollTimer=null; }
+
+/* =================== Novos eventos: avisos ao vivo =================== */
+let liveTimer;
+function onNewEvent(e){
+  const nome = nomeDe(e), comp = compNome(e.compartimento);
+  if(isOpen(e)){
+    showLive(true, `${nome||"Acesso"} abriu o ${comp||"armário"}`, e.operacao==="abertura_remota"?"Abertura feita pelo painel":`Cartão ${e.uid||""} · agora`, nome, e.uid);
+    flashDoor = e.compartimento; beep(true); window.bgBurst&&bgBurst(true); notify(`${nome||"Acesso liberado"} abriu o ${comp}`, "Smart Locker – acesso liberado");
+  } else if(isNeg(e) || e.operacao==="alerta_seguranca"){
+    const c=classify(e);
+    showLive(false, c.txt, `${nome||"Cartão"} ${e.uid&&e.uid!=="-"?e.uid:""} · acesso negado`);
+    beep(false); window.bgBurst&&bgBurst(false); notify(`${c.txt} – cartão ${e.uid||""}`, "Smart Locker – acesso negado");
+  } else return;
+  if(document.hidden){ unread++; document.title=`(${unread}) Smart Locker`; }
+}
+function showLive(ok, title, sub, nome, uid){
+  const L=$("live"); L.className="livebanner "+(ok?"":"bad");
+  $("liveIco").className="big-ico "+(ok?"i-ok":"i-bad");
+  $("liveIco").innerHTML = ok && nome ? avatar(nome, uid||nome, 48) : (ok?IC.unlockBig:IC.bad.replace(/15/g,"22"));
+  $("liveT").textContent=title; $("liveS").textContent=sub;
+  requestAnimationFrame(()=>L.classList.add("on"));
+  clearTimeout(liveTimer); liveTimer=setTimeout(()=>L.classList.remove("on"),5000);
+}
+let actx;
+function beep(ok){
+  if(!prefs.sound) return;
+  try{ actx = actx || new (window.AudioContext||window.webkitAudioContext)(); const t=actx.currentTime;
+    (ok?[[880,0],[1318.5,.12]]:[[220,0],[180,.16]]).forEach(([f,d])=>{ const o=actx.createOscillator(), g=actx.createGain(); o.type=ok?"sine":"square"; o.frequency.value=f;
+      g.gain.setValueAtTime(0,t+d); g.gain.linearRampToValueAtTime(ok?.18:.06,t+d+.02); g.gain.exponentialRampToValueAtTime(.0001,t+d+.35); o.connect(g).connect(actx.destination); o.start(t+d); o.stop(t+d+.4); });
+  }catch(e){}
+}
+function notify(body, title){ if(!prefs.notif || !("Notification" in window) || Notification.permission!=="granted" || !document.hidden) return; try{ new Notification(title,{body, tag:"smartlocker"}); }catch(e){} }
+document.addEventListener("visibilitychange",()=>{ if(!document.hidden){ unread=0; document.title="Smart Locker · Painel"; } });
+
+/* =================== Render =================== */
+let rq=false; function schedule(){ if(!rq){ rq=true; requestAnimationFrame(()=>{ rq=false; render(); }); } }
+function setHTML(el, html){ if(el._h!==html){ el.innerHTML=html; el._h=html; return true; } return false; }
+function setChip(id, kind, html){ const c=$(id); c.querySelector(".dot").className="dot "+(kind||""); c.lastElementChild.innerHTML=html; }
+function espState(){
+  const st=data.status||{};
+  const tsRef = Math.max(lastStatusRx && st.ts ? lastStatusRx : 0, typeof st.ts==="number" ? st.ts : 0, (parseLocal(st.ultimaAtualizacao)||{getTime:()=>0}).getTime());
+  const limite = st.ts ? ONLINE_S : 90;   // firmware antigo envia a cada 30 s
+  const age = tsRef ? (Date.now()-tsRef)/1000 : Infinity;
+  return {st, online: age < limite, last: tsRef};
+}
+function trackRssi(){ const st=data.status||{}; if(st.rssi==null) return; const key=(st.ts||st.ultimaAtualizacao)+""; if(rssiHist.length && rssiHist[rssiHist.length-1].k===key) return; rssiHist.push({k:key,t:Date.now(),r:st.rssi}); if(rssiHist.length>90) rssiHist.shift(); }
+
+function render(){
+  const s = espState();
+  renderTop(s); renderGeral(s); renderUsuarios(); renderEventos(); renderRelatorios(); renderDispositivo(s); renderConfig();
+  flashDoor=null; freshEv.clear();
+}
+function renderTop({st, online, last}){
+  const p=pctFromRssi(st.rssi);
+  if(online) setChip("chipWifi","ok",`ESP32 no Wi-Fi <b>${esc(st.ssid||"conectado")}</b>`);
+  else setChip("chipWifi","bad",`ESP32 offline${last?` · ${rel(last)}`:""}`);
+  $("sideFoot").innerHTML = online ? `<b>Tudo funcionando</b><br>Wi-Fi ${esc(st.ssid||"")} · ${p}% de sinal` : `<b style="color:var(--badT)">ESP32 sem sinal</b><br>Último contato: ${rel(last)}`;
+}
+function renderGeral({st, online, last}){
+  // ---- Conexão
+  const p = online ? pctFromRssi(st.rssi) : 0, col = online ? sigColor(p) : "var(--bad)";
+  $("arc").setAttribute("stroke-dasharray", `${(395.8*p/100).toFixed(1)} 527.8`); $("arc").setAttribute("stroke", col);
+  $("gPct").innerHTML = online ? `${p}<span style="font-size:18px">%</span>` : `<span style="color:var(--badT)">${IC.wifiOff.replace(/22/g,"34")}</span>`;
+  $("gLbl").textContent = online ? sigLabel(p) : "sem conexão";
+  $("netDot").className = "dot "+(online?"ok":"bad");
+  $("netState").textContent = online ? "ESP32 conectado ao Wi-Fi" : "ESP32 desconectado";
+  $("netSsid").innerHTML = st.ssid ? `${IC.wifiBig}<span>${esc(st.ssid)}</span>${online?"":'<span class="b b-bad">offline</span>'}` : (online ? `${IC.wifiBig}<span>Conectado</span><span class="b b-warn" title="Grave o firmware novo para ver o nome da rede">nome da rede indisponível</span>` : `<span style="color:var(--badT)">Sem conexão</span>`);
+  $("netCard").style.setProperty("--netGlow", online ? "rgba(60,154,110,.06)" : "rgba(201,84,84,.07)");
+  $("nIp").textContent = st.ip || "—";
+  $("nRssi").textContent = st.rssi!=null ? `${st.rssi} dBm` : "—";
+  $("nUp").textContent = online && st.uptimeS!=null ? dur(st.uptimeS + (Date.now()-last)/1000) : "—";
+  $("nLast").textContent = rel(last);
+  $("nDrops").textContent = st.quedasWifi ?? "—";
+  $("nQueue").innerHTML = st.eventosNaFila ? `<span style="color:var(--warnT)">${st.eventosNaFila}</span>` : "0";
+  drawSpark();
+
+  // ---- KPIs
+  const users=data.usuarios||{}, ids=Object.keys(users), ativos=ids.filter(u=>users[u].ativo!==false).length;
+  const ev=eventos(), hoje=startOfDay(), evh=ev.filter(e=>e.ts>=hoje);
+  const ab=evh.filter(isOpen), neg=evh.filter(isNeg).length;
+  countUp($("kOk"), ab.length); $("kOkD").textContent = `${new Set(ab.map(e=>e.usuario)).size} pessoa(s) diferentes`;
+  countUp($("kBad"), neg); $("kBad").style.color = neg ? "var(--badT)" : "";
+  $("kBadD").textContent = neg ? `${evh.filter(e=>e.resultado==="negado_cartao_desconhecido").length} com cartão desconhecido` : "Nenhuma tentativa negada";
+  countUp($("kUsers"), ativos); $("kUsersD").textContent = `${ids.length} cadastrados · ${ids.length-ativos} desativados`;
+  const la = ev.find(isOpen);
+  $("kLast").textContent = la ? (nomeDe(la)||la.uid) : "—";
+  $("kLastD").textContent = la ? `${compNome(la.compartimento)} · ${rel(la.ts)}` : "Nenhuma abertura ainda";
+
+  // ---- Avisos
+  const uk=Object.keys(data.cartoesDesconhecidos||{}), cfg=data.config||{};
+  let b="";
+  if(cfg.bloqueado) b+=`<div class="alert bad"><span class="ico i-bad">${IC.lock}</span><div><b>Armário em bloqueio geral</b><span class="mut small">Todos os acessos estão sendo negados.</span></div><div class="sp"></div><button class="btn sm" data-unblock="1">Desbloquear</button></div>`;
+  if(uk.length) b+=`<div class="alert"><span class="ico i-warn">${IC.card}</span><div><b>${uk.length===1?"1 cartão aguardando cadastro":uk.length+" cartões aguardando cadastro"}</b><span class="mut small">Mais recente: <code>${esc(uk[uk.length-1])}</code></span></div><div class="sp"></div><button class="btn pri sm" data-reg="${esc(uk[uk.length-1])}">Cadastrar agora</button></div>`;
+  setHTML($("banners"), b);
+  $("tAb").textContent = cfg.tempoAbertura ?? 5;
+
+  // ---- Compartimentos
+  const comps=data.compartimentos||{}, cmds=cfg.comandos||{}, tAb=(cfg.tempoAbertura??5)*1000;
+  const lockHtml = COMPS.map((c,i)=>{
+    const s=comps[c]||{}, open=s.estado==="aberto", pend=cmds[c];
+    const quem=Object.values(users).filter(u=>u.ativo!==false&&(u.permissoes||{})[c]).length;
+    const t0=parseLocal(s.atualizadoEm); const fim = open&&t0 ? t0.getTime()+tAb : 0;
+    return `<div class="door ${open?"open":""}" data-c="${c}">
+      <div class="hd"><div><div class="num">COMPARTIMENTO</div><div class="n">${String(i+1).padStart(2,"0")}</div></div><div class="lock">${open?IC.unlockBig:IC.lockBig}</div></div>
+      <div class="row" style="gap:6px">${open?'<span class="b b-ok">● Aberto</span>':'<span class="b b-mut">Trancado</span>'}<span class="b b-mut">${quem} com acesso</span></div>
+      ${open?`<div class="bar"><i data-fim="${fim}" data-dur="${tAb}"></i></div>`:""}
+      <div class="who">${s.ultimoUsuario&&s.ultimoUsuario!=="-"?`Último: <b>${esc(s.ultimoUsuario)}</b><br>`:""}${s.atualizadoEm?"às "+new Date(parseLocal(s.atualizadoEm)?.getTime()||0).toLocaleTimeString("pt-BR"):""}</div>
+      ${pend?`<button class="btn sm" disabled><span class="spin"></span>Enviando ao ESP32…</button>`:`<button class="btn sm" data-open="${c}">${IC.unlock}Abrir remotamente</button>`}
+    </div>`;
+  }).join("");
+  const fl=flashDoor; if(setHTML($("lockers"), lockHtml)||fl){ if(fl){ const d=$("lockers").querySelector(`[data-c="${fl}"]`); if(d){ d.classList.remove("flash"); void d.offsetWidth; d.classList.add("flash"); } }
+    $("lockers").querySelectorAll(".bar i").forEach(b=>{ const left=Math.max(0,+b.dataset.fim-Date.now()), dur=+b.dataset.dur||5000;
+      b.style.width=(left/dur*100)+"%"; b.style.transition="none"; requestAnimationFrame(()=>requestAnimationFrame(()=>{ b.style.transition=`width ${left}ms linear`; b.style.width="0%"; })); });
+  }
+
+  // ---- Feed ao vivo
+  const feed=ev.filter(e=>e.operacao!=="fechamento"&&!(e.operacao==="identificacao"&&!isNeg(e))).slice(0,6);
+  setHTML($("feed"), feed.length ? feed.map(e=>{ const c=classify(e), n=nomeDe(e);
+      return `<div class="fi ${freshEv.has(e.k)?"new":""}">${n&&isOpen(e)?avatar(n,e.uid||n,32):`<span class="ico ${c.cls}">${c.icon}</span>`}<div class="t"><b>${n?esc(n):(e.uid&&e.uid!=="-"?`<code>${esc(e.uid)}</code>`:"Sistema")}</b> <span class="mut">· ${esc(c.txt)}${compNome(e.compartimento)?" · "+compNome(e.compartimento):""}</span><div class="small mut">${esc(e.origem==="remoto"?"painel":e.origem||"")}</div></div><span class="tm">${rel(e.ts)}</span></div>`; }).join("")
+    : `<div class="empty">Nenhuma atividade ainda.<br>Passe um cartão no leitor.</div>`);
+
+  if($("v-geral").classList.contains("on")) drawChart(ev);
+}
+
+function drawSpark(){
+  const svg=$("spark"); const W=svg.clientWidth||300, H=46;
+  if(rssiHist.length<2){ svg.innerHTML=""; return; }
+  const xs=rssiHist.map((_,i)=>i/(rssiHist.length-1)*W), ys=rssiHist.map(h=>H-4-(pctFromRssi(h.r)/100)*(H-8));
+  const d=xs.map((x,i)=>(i?"L":"M")+x.toFixed(1)+","+ys[i].toFixed(1)).join("");
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  svg.innerHTML=`<defs><linearGradient id="sg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3c9a6e" stop-opacity=".22"/><stop offset="1" stop-color="#3c9a6e" stop-opacity="0"/></linearGradient></defs><path d="${d}L${W},${H}L0,${H}Z" fill="url(#sg)"/><path d="${d}" fill="none" stroke="#3c9a6e" stroke-width="2" stroke-linejoin="round"/><circle cx="${xs.at(-1)}" cy="${ys.at(-1)}" r="3.5" fill="#3c9a6e"/>`;
+}
+
+function drawChart(ev){
+  const svg=$("chart"); if(!svg.clientWidth) return;
+  const W=svg.clientWidth, H=220, pb=22, pt=10, pl=26;
+  const now=new Date(); now.setMinutes(0,0,0); const start=now.getTime()-23*3600e3;
+  const ok=Array(24).fill(0), bad=Array(24).fill(0);
+  ev.forEach(e=>{ const i=Math.floor((e.ts-start)/3600e3); if(i<0||i>23) return; if(isNeg(e)) bad[i]++; else if(isOpen(e)) ok[i]++; });
+  const top=Math.ceil(Math.max(2,...ok.map((v,i)=>v+bad[i]))/2)*2;
+  const bw=(W-pl)/24, ch=H-pb-pt; let g=`<defs><linearGradient id="gok" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#4fae80"/><stop offset="1" stop-color="#357f5c"/></linearGradient><linearGradient id="gbad" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d06a6a"/><stop offset="1" stop-color="#a84747"/></linearGradient></defs>`;
+  [0,.5,1].forEach(f=>{ const y=pt+ch*(1-f); g+=`<line x1="${pl}" x2="${W}" y1="${y}" y2="${y}" stroke="var(--line2)" ${f?'stroke-dasharray="3 4"':""}/><text x="${pl-6}" y="${y+4}" fill="var(--mut2)" font-size="10" text-anchor="end">${Math.round(top*f)}</text>`; });
+  for(let i=0;i<24;i++){
+    const x=pl+i*bw+bw*.18, w=bw*.64, ho=ch*ok[i]/top, hb=ch*bad[i]/top, yb=pt+ch;
+    if(ok[i]) g+=`<rect x="${x}" y="${yb-ho}" width="${w}" height="${ho}" rx="4" fill="url(#gok)"><title>${ok[i]} abertura(s)</title></rect>`;
+    if(bad[i]) g+=`<rect x="${x}" y="${yb-ho-hb-(ok[i]?2:0)}" width="${w}" height="${hb}" rx="4" fill="url(#gbad)"><title>${bad[i]} negado(s)</title></rect>`;
+    if(i%4===3||i===23){ const h=new Date(start+i*3600e3).getHours(); g+=`<text x="${i===23?W:x+w/2}" y="${H-6}" fill="var(--mut2)" font-size="10" text-anchor="${i===23?"end":"middle"}">${i===23?"agora":String(h).padStart(2,"0")+"h"}</text>`; }
+  }
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`); svg.innerHTML=g;
+}
+
+function lastAccessMap(){ const m={}; eventos().forEach(e=>{ if(isOpen(e) && e.uid && !m[e.uid]) m[e.uid]=e.ts; }); return m; }
+function renderUsuarios(){
+  const users=data.usuarios||{}, q=$("uSearch").value.toLowerCase(), pf=$("uPerfil").value, la=lastAccessMap();
+  const ids=Object.keys(users).filter(u=>(!q||u.toLowerCase().includes(q)||(users[u].nome||"").toLowerCase().includes(q))&&(!pf||users[u].perfil===pf))
+    .sort((a,b)=>(users[a].nome||"").localeCompare(users[b].nome||""));
+  $("uCount").textContent = `${Object.keys(users).length} no total`;
+  setHTML($("tUsers"), `<tr><th>Usuário</th><th>Perfil</th><th>Compartimentos</th><th>Última abertura</th><th>Ativo</th><th></th></tr>` +
+    (ids.length ? ids.map(uid=>{ const u=users[uid], p=u.permissoes||{}, on=u.ativo!==false;
+      return `<tr class="${on?"":"inactive"}"><td><div class="user">${avatar(u.nome,uid)}<div><b>${esc(u.nome||"Sem nome")}</b><small class="mono">${esc(uid)}</small>${regrasTxt(u)}</div></div></td>
+        <td>${perfilBadge(u.perfil)}</td>
+        <td><div class="perms">${COMPS.map((c,i)=>`<button class="pc ${p[c]?"on":""}" title="Compartimento ${i+1}: clique para ${p[c]?"bloquear":"liberar"}" data-perm="${esc(uid)}|${c}|${p[c]?0:1}">${i+1}</button>`).join("")}</div></td>
+        <td class="mut small">${la[uid]?rel(la[uid]):"nunca"}</td>
+        <td><label class="sw"><input type="checkbox" ${on?"checked":""} data-ativo="${esc(uid)}"><span></span></label></td>
+        <td style="text-align:right;white-space:nowrap"><button class="btn ghost icon" title="Editar" data-edit="${esc(uid)}">${IC.edit}</button><button class="btn ghost icon" title="Excluir" data-del="${esc(uid)}">${IC.trash}</button></td></tr>`; }).join("")
+    : `<tr><td colspan="6" class="empty">${Object.keys(users).length?"Nenhum usuário encontrado com esse filtro.":"Nenhum usuário cadastrado ainda. Clique em <b>Novo usuário</b> ou passe um cartão no leitor."}</td></tr>`));
+  const unk=data.cartoesDesconhecidos||{}, uk=Object.keys(unk);
+  $("ukCard").style.display = uk.length?"block":"none";
+  $("navUk").hidden = !uk.length; $("navUk").textContent = uk.length;
+  setHTML($("ukList"), uk.map(u=>{ const x=unk[u]||{}; const ms = x.epoch>0 ? x.epoch*1000 : (parseLocal(x.ultimaTentativa)?.getTime() || 0);
+    return `<div class="ukc"><div class="row"><span class="ico i-warn">${IC.card}</span><div><code style="font-size:14px">${esc(u)}</code><div class="small mut">Tentou ${ms?"às "+new Date(ms).toLocaleTimeString("pt-BR"):"—"}</div></div></div>
+      <div class="row"><button class="btn pri sm" data-reg="${esc(u)}">Cadastrar</button><button class="btn ghost sm" data-ign="${esc(u)}">Ignorar</button></div></div>`; }).join(""));
+}
+function renderEventos(){
+  const fu=$("fUser").value.toLowerCase(), fc=$("fComp").value, fr=$("fRes").value, per=+$("fPer").value;
+  const min = per===1 ? startOfDay() : per ? Date.now()-per*86400e3 : 0;
+  const all=eventos();
+  const list=all.filter(e=>{
+    if(min && e.ts && e.ts<min) return false;
+    if(fu && !(String(e.usuario||"").toLowerCase().includes(fu)||String(e.uid||"").toLowerCase().includes(fu))) return false;
+    if(fc && e.compartimento!==fc) return false;
+    if(fr==="negado" && !isNeg(e)) return false;
+    if(fr==="ok" && !isOpen(e)) return false;
+    if(fr==="sistema" && e.origem!=="sistema") return false;
+    return true; });
+  window._evList=list;
+  $("evCount").textContent = `${list.length} de ${all.length}`;
+  setHTML($("tEv"), `<tr><th>Quando</th><th>Usuário</th><th>Cartão</th><th>Compartimento</th><th>Resultado</th><th>Origem</th></tr>` +
+    (list.length ? list.slice(0,400).map(e=>{ const c=classify(e), n=nomeDe(e);
+      return `<tr class="${freshEv.has(e.k)?"new":""}"><td style="white-space:nowrap">${fmt(e.ts)}<div class="small mut">${rel(e.ts)}</div></td>
+        <td>${n?`<b style="font-weight:600">${esc(n)}</b>`:`<span class="mut">${esc(e.usuario==="-"||!e.usuario?"—":e.usuario)}</span>`}</td>
+        <td>${e.uid&&e.uid!=="-"?`<code>${esc(e.uid)}</code>`:'<span class="mut">—</span>'}</td>
+        <td>${compNome(e.compartimento)||'<span class="mut">—</span>'}</td>
+        <td><span class="b ${c.badge}">${esc(c.txt)}</span></td>
+        <td class="mut small">${esc(e.origem||"")}</td></tr>`; }).join("")
+      : `<tr><td colspan="6" class="empty">Nenhum evento com esses filtros.</td></tr>`));
+}
+function renderDispositivo({st, online, last}){
+  const p=pctFromRssi(st.rssi);
+  $("dWifiState").innerHTML = online ? '<span class="b b-ok">● conectado</span>' : '<span class="b b-bad">desconectado</span>';
+  const box=(k,v)=>`<div><span>${k}</span><b>${v}</b></div>`;
+  $("devWifi").innerHTML = [
+    box("Rede (SSID)", esc(st.ssid||"—")), box("Sinal", st.rssi!=null?`${p}% · ${st.rssi} dBm · ${sigLabel(p)}`:"—"),
+    box("Endereço IP", `<span class="mono">${esc(st.ip||"—")}</span>`), box("Roteador (gateway)", `<span class="mono">${esc(st.gateway||"—")}</span>`),
+    box("Canal", esc(st.canal??"—")), box("Quedas desde que ligou", esc(st.quedasWifi??"—")), box("Rede em uso", st.redeReserva?"reserva":"principal")].join("");
+  $("devEsp").innerHTML = [
+    box("Status", online?'<span style="color:var(--okT)">Online</span>':'<span style="color:var(--badT)">Offline</span>'), box("Último contato", `${rel(last)} <small class="mut" style="font-weight:400">· ${fmt(last)}</small>`),
+    box("Ligado há", online&&st.uptimeS!=null?dur(st.uptimeS+(Date.now()-last)/1000):"—"), box("Memória livre", st.heapLivre?`${(st.heapLivre/1024).toFixed(0)} KB`:"—"),
+    box("Endereço MAC", `<span class="mono">${esc(st.mac||"—")}</span>`), box("Firmware", esc(st.versao||"anterior a 2.1")),
+    box("Eventos na fila offline", esc(st.eventosNaFila??0)), box("Bloqueio geral", st.bloqueado?"ativado":"desligado"),
+    box("Atualização pelo Wi-Fi (OTA)", st.ota?`<span class="mono">${esc(st.ota)}</span>`:"—")].join("");
+  if($("v-dispositivo").classList.contains("on")) drawRssi();
+}
+function drawRssi(){
+  const svg=$("rssiChart"); const W=svg.clientWidth||500, H=180, pl=34, pb=20, pt=8, ch=H-pb-pt;
+  let g=""; [0,50,100].forEach(v=>{ const y=pt+ch*(1-v/100); g+=`<line x1="${pl}" x2="${W}" y1="${y}" y2="${y}" stroke="var(--line2)" ${v?'stroke-dasharray="3 4"':""}/><text x="${pl-6}" y="${y+4}" fill="var(--mut2)" font-size="10" text-anchor="end">${v}%</text>`; });
+  if(rssiHist.length>=2){
+    const t0=rssiHist[0].t, t1=rssiHist.at(-1).t||t0+1, span=Math.max(1,t1-t0);
+    const pts=rssiHist.map(h=>[pl+(h.t-t0)/span*(W-pl), pt+ch*(1-pctFromRssi(h.r)/100)]);
+    const d=pts.map((q,i)=>(i?"L":"M")+q[0].toFixed(1)+","+q[1].toFixed(1)).join("");
+    g+=`<defs><linearGradient id="rg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#6f8fd9" stop-opacity=".25"/><stop offset="1" stop-color="#6f8fd9" stop-opacity="0"/></linearGradient></defs><path d="${d}L${pts.at(-1)[0]},${pt+ch}L${pts[0][0]},${pt+ch}Z" fill="url(#rg)"/><path d="${d}" fill="none" stroke="#6f8fd9" stroke-width="2.2" stroke-linejoin="round"/>`;
+    g+=`<text x="${pl}" y="${H-4}" fill="var(--mut2)" font-size="10">${new Date(t0).toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})}</text><text x="${W}" y="${H-4}" fill="var(--mut2)" font-size="10" text-anchor="end">agora</text>`;
+  } else g+=`<text x="${(W+pl)/2}" y="${H/2}" fill="var(--mut2)" font-size="12" text-anchor="middle">Coletando dados do sinal… (o gráfico aparece com o painel aberto)</text>`;
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`); svg.innerHTML=g;
+}
+function renderRelatorios(){
+  if(!$("v-relatorios").classList.contains("on")) return;
+  const per=+$("rPer").value, min=per?Date.now()-per*86400e3:0;
+  const ev=eventos().filter(e=>!min||e.ts>=min), ab=ev.filter(isOpen), neg=ev.filter(isNeg), alerts=ev.filter(e=>String(e.operacao).startsWith("alerta"));
+  const porU={}; ab.forEach(e=>{ const n=nomeDe(e)||e.uid||"?"; porU[n]=(porU[n]||0)+1; });
+  const topU=Object.entries(porU).sort((a,b)=>b[1]-a[1]);
+  const taxa = ab.length+neg.length ? Math.round(ab.length/(ab.length+neg.length)*100) : 0;
+  const kpi=(t,v,d)=>`<div class="card kpi"><div class="lb">${t}</div><div class="v">${v}</div><div class="d">${d}</div></div>`;
+  setHTML($("rKpis"), kpi("Aberturas",ab.length,`${new Set(ab.map(e=>e.uid)).size} cartões diferentes`)+kpi("Acessos negados",`<span style="color:${neg.length?"var(--badT)":"inherit"}">${neg.length}</span>`,`${alerts.length} alerta(s) de segurança`)+kpi("Taxa de sucesso",taxa+"%","aberturas ÷ tentativas")+kpi("Usuário mais ativo",`<span style="font-size:22px">${esc(topU[0]?topU[0][0]:"—")}</span>`,topU[0]?`${topU[0][1]} abertura(s)`:"sem dados"));
+  const bars=(rows,color)=>{ if(!rows.length) return '<div class="empty">Sem dados no período</div>'; const mx=Math.max(...rows.map(r=>r[1])); return rows.map(([k,v])=>`<div class="hbar"><span title="${esc(k)}">${esc(k)}</span><div class="tr"><i style="width:${v/mx*100}%;${color?`background:${color}`:""}"></i></div><span>${v}</span></div>`).join(""); };
+  setHTML($("rUsers"), bars(topU.slice(0,10)));
+  setHTML($("rComps"), bars(COMPS.map((c,i)=>["Compartimento "+(i+1), ab.filter(e=>e.compartimento===c).length])));
+  const motivos={}; neg.forEach(e=>{ const t=classify(e).txt; motivos[t]=(motivos[t]||0)+1; });
+  setHTML($("rNeg"), bars(Object.entries(motivos).sort((a,b)=>b[1]-a[1]),"var(--bad)"));
+  const M=Array.from({length:7},()=>Array(24).fill(0)); ab.forEach(e=>{ const d=new Date(e.ts); M[d.getDay()][d.getHours()]++; });
+  const mx=Math.max(1,...M.flat());
+  let h='<span></span>'+Array.from({length:24},(_,i)=>`<span style="text-align:center">${i%3===0?i:""}</span>`).join("");
+  M.forEach((row,d)=>{ h+=`<span>${DIAS_N[d]}</span>`+row.map((v,hh)=>`<i title="${DIAS_N[d]} ${hh}h: ${v} abertura(s)" style="${v?`background:color-mix(in srgb,var(--pri) ${15+85*v/mx}%,var(--line))`:""}"></i>`).join(""); });
+  setHTML($("rHeat"), h);
+}
+$("rPer").addEventListener("input",renderRelatorios);
+$("btnPrint").onclick=()=>window.print();
+
+function renderConfig(){
+  if(cfgDirty) return;
+  const c=data.config||{};
+  $("cTempo").value=c.tempoAbertura??5; $("cTempoV").textContent=$("cTempo").value+"s";
+  $("cOff").checked=c.permitirOffline??true; $("cBloq").checked=!!c.bloqueado;
+}
+
+/* =================== Modal de usuário =================== */
+let mPerm={}, mDias=new Set();
+const DIAS=["D","S","T","Q","Q","S","S"], DIAS_N=["dom","seg","ter","qua","qui","sex","sáb"];
+function drawDias(){ $("mDias").innerHTML=DIAS.map((d,i)=>`<button type="button" class="dchip ${mDias.has(i)?"on":""}" data-dia="${i}" title="${DIAS_N[i]}">${d}</button>`).join(""); }
+$("mDias").onclick=e=>{ const t=e.target.closest("[data-dia]"); if(!t) return; const i=+t.dataset.dia; mDias.has(i)?mDias.delete(i):mDias.add(i); drawDias(); };
+function diasTxt(d){ if(!d) return ""; const a=[...String(d)].map(Number).sort(); const k=a.join(""); if(k==="12345") return "seg–sex"; if(k==="0123456") return ""; if(k==="06") return "fim de semana"; return a.map(i=>DIAS_N[i]).join(", "); }
+function regrasTxt(u){
+  const p=[]; if(u.horaInicio&&u.horaFim) p.push(`${u.horaInicio}–${u.horaFim}`); const d=diasTxt(u.dias); if(d) p.push(d);
+  let exp=""; if(u.validoAte){ const vencido = u.validoAte < new Date(Date.now()-4*3600e3).toISOString().slice(0,10); exp = vencido ? `<span class="b b-bad" style="padding:1px 7px">expirado</span>` : `até ${u.validoAte.split("-").reverse().join("/")}`; }
+  if(exp) p.push(exp); return p.length ? `<div class="tag">${p.join(" · ")}</div>` : "";
+}
+function drawPerms(){ $("mPerms").innerHTML=COMPS.map((c,i)=>`<div class="pbig ${mPerm[c]?"on":""}" data-mp="${c}">${i+1}<small>${mPerm[c]?"liberado":"bloqueado"}</small></div>`).join(""); }
+function openUser(uid, preset){
+  editing = uid && (data.usuarios||{})[uid] ? uid : null;
+  const u = editing ? data.usuarios[uid] : {};
+  $("mTitle").textContent = editing ? "Editar usuário" : "Novo usuário";
+  $("mSub").textContent = editing ? "Altere o nome, o perfil e os compartimentos liberados." : "Cadastre o cartão RFID e escolha os compartimentos liberados.";
+  $("mUid").value = editing || preset || ""; $("mUid").disabled = !!editing;
+  $("mNome").value = u.nome || ""; $("mPerfil").value = u.perfil || "aluno";
+  mPerm = editing ? {...(u.permissoes||{})} : {c1:true,c2:false,c3:false,c4:false};
+  $("mIni").value = u.horaInicio || ""; $("mFim").value = u.horaFim || ""; $("mVal").value = u.validoAte || "";
+  mDias = new Set(u.dias ? [...String(u.dias)].map(Number) : []); drawDias();
+  drawPerms(); openOv("mUser");
+  setTimeout(()=>($("mUid").value?$("mNome"):$("mUid")).focus(),60);
+}
+$("mPerms").onclick=e=>{ const t=e.target.closest("[data-mp]"); if(!t) return; mPerm[t.dataset.mp]=!mPerm[t.dataset.mp]; drawPerms(); };
+$("mAll").onclick=()=>{ COMPS.forEach(c=>mPerm[c]=true); drawPerms(); };
+$("mNone").onclick=()=>{ COMPS.forEach(c=>mPerm[c]=false); drawPerms(); };
+$("mPerfil").onchange=()=>{ if($("mPerfil").value==="admin"){ COMPS.forEach(c=>mPerm[c]=true); drawPerms(); } };
+$("mSave").onclick=()=>{
+  const uid=$("mUid").value.trim().toUpperCase().replace(/[^0-9A-F]/g,""), nome=$("mNome").value.trim();
+  if(uid.length<4) return toast("Informe o UID do cartão (números e letras de A a F)","bad");
+  if(!nome) return toast("Informe o nome","bad");
+  if(!editing && (data.usuarios||{})[uid]) return toast("Esse cartão já está cadastrado – use Editar","bad");
+  const perms=Object.fromEntries(COMPS.map(c=>[c,!!mPerm[c]]));
+  const ini=$("mIni").value, fim=$("mFim").value;
+  if((ini&&!fim)||(!ini&&fim)) return toast("Preencha o horário de início e de fim (ou deixe os dois vazios)","bad");
+  const dias = mDias.size && mDias.size<7 ? [...mDias].sort().join("") : null;
+  const regras = {horaInicio:ini||null, horaFim:fim||null, dias, validoAte:$("mVal").value||null};
+  closeOv("mUser");
+  if(editing) act(()=>fb("PATCH","/locker/usuarios/"+uid,{nome,perfil:$("mPerfil").value,permissoes:perms,...regras}),"Usuário atualizado");
+  else act(async()=>{ const novo={nome,perfil:$("mPerfil").value,ativo:true,permissoes:perms}; for(const k in regras) if(regras[k]) novo[k]=regras[k]; await fb("PUT","/locker/usuarios/"+uid,novo); await fb("DELETE","/locker/cartoesDesconhecidos/"+uid); },`${nome} cadastrado – o cartão já funciona`);
+};
+
+/* =================== Overlays =================== */
+function openOv(id){ $(id).classList.add("on"); }
+function closeOv(id){ $(id).classList.remove("on"); }
+function confirmar(t,p,okTxt,fn){ $("cfT").textContent=t; $("cfP").textContent=p; $("cfOk").textContent=okTxt; $("cfOk").onclick=()=>{ closeOv("mConf"); fn(); }; openOv("mConf"); }
+document.querySelectorAll(".ov").forEach(o=>o.addEventListener("click",e=>{ if(e.target===o||e.target.closest("[data-close]")) o.classList.remove("on"); }));
+
+/* Paleta de comandos (Ctrl+K) */
+let kItems=[], kSel=0;
+function openK(){ $("kIn").value=""; drawK(); openOv("mK"); setTimeout(()=>$("kIn").focus(),40); }
+function drawK(){
+  const q=$("kIn").value.toLowerCase().trim(), users=data.usuarios||{};
+  const all=[
+    ...Object.entries(TITLES).map(([v,t])=>({g:"Ir para",t:t[0],s:t[1],run:()=>go(v)})),
+    {g:"Ações",t:"Novo usuário",s:"Cadastrar cartão",run:()=>openUser(null)},
+    ...COMPS.map((c,i)=>({g:"Ações",t:`Abrir compartimento ${i+1}`,s:"Abertura remota",run:()=>abrir(c)})),
+    {g:"Ações",t:"Exportar eventos (CSV)",s:"",run:()=>$("btnCsv").click()},
+    {g:"Ações",t:prefs.theme==="dark"?"Usar tema claro":"Usar tema escuro",s:"",run:()=>$("btnTheme").click()},
+    ...Object.keys(users).map(uid=>({g:"Usuários",t:users[uid].nome||uid,s:uid,av:avatar(users[uid].nome,uid,26),run:()=>openUser(uid)}))
+  ];
+  kItems = q ? all.filter(x=>(x.t+" "+x.s).toLowerCase().includes(q)) : all;
+  kSel=Math.min(kSel,Math.max(0,kItems.length-1));
+  let g="", last="";
+  kItems.slice(0,40).forEach((x,i)=>{ if(x.g!==last){ g+=`<div class="grp">${x.g}</div>`; last=x.g; }
+    g+=`<div class="it ${i===kSel?"sel":""}" data-k="${i}">${x.av||IC.go}<span>${esc(x.t)}</span><small>${esc(x.s)}</small></div>`; });
+  $("kList").innerHTML = g || `<div class="empty">Nada encontrado</div>`;
+}
+$("kIn").oninput=()=>{ kSel=0; drawK(); };
+$("kList").onclick=e=>{ const t=e.target.closest("[data-k]"); if(t){ closeOv("mK"); kItems[+t.dataset.k].run(); } };
+$("btnK").onclick=openK;
+
+document.addEventListener("keydown",e=>{
+  if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==="k"){ e.preventDefault(); openK(); return; }
+  if(e.key==="Escape"){ document.querySelectorAll(".ov.on").forEach(o=>o.classList.remove("on")); return; }
+  if($("mK").classList.contains("on")){
+    if(e.key==="ArrowDown"){ kSel=Math.min(kItems.length-1,kSel+1); drawK(); e.preventDefault(); }
+    else if(e.key==="ArrowUp"){ kSel=Math.max(0,kSel-1); drawK(); e.preventDefault(); }
+    else if(e.key==="Enter" && kItems[kSel]){ closeOv("mK"); kItems[kSel].run(); }
+    return;
+  }
+  if(e.key==="Enter" && $("mUser").classList.contains("on") && e.target.tagName==="INPUT"){ $("mSave").click(); return; }
+  if(!document.querySelector(".ov.on") && !/INPUT|SELECT|TEXTAREA/.test(e.target.tagName) && /^[1-6]$/.test(e.key)) go(Object.keys(TITLES)[+e.key-1]);
+});
+
+/* =================== Navegação =================== */
+const TITLES={geral:["Visão geral","Monitoramento em tempo real do armário"],usuarios:["Usuários","Cadastro de cartões e permissões de acesso"],eventos:["Eventos","Tudo o que aconteceu no armário, com data e hora"],relatorios:["Relatórios","Uso do armário por usuário, compartimento e horário"],dispositivo:["Dispositivo","Wi-Fi e saúde do ESP32"],config:["Configurações","Regras de funcionamento enviadas ao ESP32"]};
+function go(v){
+  if(!TITLES[v]) v="geral";
+  menu(false);
+  document.querySelectorAll(".nav").forEach(n=>n.classList.toggle("on",n.dataset.v===v));
+  document.querySelectorAll(".view").forEach(s=>s.classList.toggle("on",s.id==="v-"+v));
+  $("title").textContent=TITLES[v][0]; $("subtitle").textContent=TITLES[v][1]; store("aba",v);
+  requestAnimationFrame(()=>{ if(v==="geral"){ drawChart(eventos()); drawSpark(); } if(v==="dispositivo") drawRssi(); if(v==="relatorios") renderRelatorios(); });
+}
+
+function menu(open){ $("side").classList.toggle("open",open); $("scrim").classList.toggle("on",open); }
+$("btnMenu").onclick=()=>{ if(innerWidth>820){ const m=!document.querySelector(".app").classList.contains("mini-side"); document.querySelector(".app").classList.toggle("mini-side",m); store("sideMini",m?"1":"0"); setTimeout(schedule,320); } else menu(!$("side").classList.contains("open")); };
+if(store("sideMini")==="1") document.querySelector(".app").classList.add("mini-side");
+document.querySelectorAll(".side .nav").forEach(n=>n.title=n.textContent.replace(/\d+$/,"").trim());
+$("scrim").onclick=()=>menu(false);
+
+/* =================== Ações =================== */
+const abrir = c => act(async()=>{ await fb("PUT","/locker/config/comandoPor","admin-painel"); await fb("PUT","/locker/config/comandos/"+c,"abrir"); },`Comando enviado – o compartimento ${c.slice(1)} abre em alguns segundos`);
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-v],[data-go],[data-open],[data-perm],[data-edit],[data-del],[data-reg],[data-ign],[data-unblock],[data-test]"); if(!t) return;
+  const d=t.dataset, users=data.usuarios||{};
+  if(d.v) go(d.v);
+  else if(d.go) go(d.go);
+  else if(d.test) act(async()=>{ await fb("PUT","/locker/config/comandoPor","admin-painel"); await fb("PUT","/locker/config/comandos/"+d.test,"testar"); },`Teste enviado – a fechadura ${d.test.slice(1)} vai girar e voltar`);
+  else if(d.unblock) act(()=>fb("PUT","/locker/config/bloqueado",false),"Armário desbloqueado");
+  else if(d.open) abrir(d.open);
+  else if(d.perm){ const [uid,c,v]=d.perm.split("|"); t.classList.toggle("on"); act(()=>fb("PUT",`/locker/usuarios/${uid}/permissoes/${c}`,v==="1"),`Compartimento ${c.slice(1)} ${v==="1"?"liberado":"bloqueado"} para ${(users[uid]||{}).nome||uid}`); }
+  else if(d.edit) openUser(d.edit);
+  else if(d.del){ const u=users[d.del]||{}; confirmar("Excluir usuário?",`${u.nome||d.del} (${d.del}) perde o acesso ao armário imediatamente.`,"Excluir",()=>act(()=>fb("DELETE","/locker/usuarios/"+d.del),"Usuário excluído")); }
+  else if(d.reg){ go("usuarios"); openUser(null,d.reg); }
+  else if(d.ign) act(()=>fb("DELETE","/locker/cartoesDesconhecidos/"+d.ign),"Cartão ignorado");
+});
+document.addEventListener("change",e=>{ const uid=e.target.dataset && e.target.dataset.ativo; if(uid) act(()=>fb("PUT",`/locker/usuarios/${uid}/ativo`,e.target.checked),e.target.checked?"Usuário reativado":"Usuário desativado – o cartão não abre mais"); });
+
+$("btnNew").onclick=()=>openUser(null);
+["uSearch","uPerfil"].forEach(id=>$(id).addEventListener("input",renderUsuarios));
+["fUser","fComp","fRes","fPer"].forEach(id=>$(id).addEventListener("input",renderEventos));
+$("btnCsv").onclick=()=>{
+  const rows=[["data_hora","usuario","uid","compartimento","operacao","resultado","origem"]].concat((window._evList||eventos()).map(e=>[fmt(e.ts),e.usuario,e.uid,e.compartimento,e.operacao,e.resultado,e.origem]));
+  const csv=rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(";")).join("\r\n");
+  const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"})); a.download="eventos-smart-locker.csv"; a.click();
+};
+["cTempo","cOff","cBloq"].forEach(id=>$(id).addEventListener("input",()=>{ cfgDirty=true; $("cTempoV").textContent=$("cTempo").value+"s"; }));
+$("btnCfg").onclick=()=>{
+  const salvar=async()=>{ if(await act(()=>fb("PATCH","/locker/config",{tempoAbertura:+$("cTempo").value,permitirOffline:$("cOff").checked,bloqueado:$("cBloq").checked}),"Configurações salvas – o ESP32 aplica em alguns segundos")){ cfgDirty=false; renderConfig(); } };
+  if($("cBloq").checked && !(data.config||{}).bloqueado) confirmar("Ativar bloqueio geral?","Ninguém conseguirá abrir o armário até você desativar.","Bloquear",salvar); else salvar();
+};
+$("btnClearEv").onclick=()=>confirmar("Apagar histórico?","Todos os eventos registrados serão apagados do Firebase. Isso não pode ser desfeito.","Apagar tudo",()=>act(()=>fb("DELETE","/locker/eventos"),"Histórico apagado"));
+$("btnSeed").onclick=()=>confirmar("Criar dados de exemplo?","Adiciona 3 usuários de teste (Joao, Maria e Prof. Carlos) sem apagar os atuais.","Criar",()=>act(()=>fb("PATCH","/locker",{
+  "usuarios/11223344": {nome:"Joao",perfil:"aluno",ativo:true,permissoes:{c1:true,c2:true,c3:false,c4:false}},
+  "usuarios/AABBCCDD": {nome:"Maria",perfil:"aluno",ativo:true,permissoes:{c1:false,c2:false,c3:true,c4:false}},
+  "usuarios/DEADBEEF": {nome:"Prof. Carlos",perfil:"professor",ativo:true,permissoes:{c1:true,c2:true,c3:true,c4:true}}
+}),"Dados de exemplo criados"));
+$("btnCon").onclick=async()=>{ BASE=$("cUrl").value.trim().replace(/\/+$/,""); SECRET=$("cSec").value.trim(); API_KEY=$("cKey").value.trim(); store("fbUrl",BASE); store("fbSecret",SECRET); store("apiKey",API_KEY); if(!(await ensureAuth())) return; toast("Reconectando…"); connectStream(); };
+
+/* Som, avisos e tema */
+function syncTools(){ $("btnSound").classList.toggle("on",prefs.sound); $("btnNotif").classList.toggle("on",prefs.notif); document.documentElement.dataset.theme=prefs.theme; }
+$("btnSound").onclick=()=>{ prefs.sound=!prefs.sound; store("som",prefs.sound?"1":"0"); syncTools(); if(prefs.sound) beep(true); toast(prefs.sound?"Som ligado":"Som desligado"); };
+$("btnNotif").onclick=async()=>{
+  if(prefs.notif){ prefs.notif=false; store("notif","0"); syncTools(); return toast("Avisos desligados"); }
+  if(!("Notification" in window)) return toast("Este navegador não suporta avisos","bad");
+  const p = await Notification.requestPermission();
+  if(p==="granted"){ prefs.notif=true; store("notif","1"); syncTools(); toast("Avisos ligados – aparecem quando o painel estiver em segundo plano","ok"); }
+  else toast("O navegador bloqueou os avisos","bad");
+};
+$("btnTheme").onclick=()=>{ prefs.theme=prefs.theme==="dark"?"light":"dark"; store("tema",prefs.theme); syncTools(); schedule(); };
+
+window.addEventListener("resize",()=>schedule());
+setInterval(()=>schedule(), 1000);   // relógios "há X s", barra de tempo e status online
+
+/* =================== Fundo animado: placa de circuito + ESP32 =================== */
+(function(){
+  const cv=document.getElementById("bgfx"), ctx=cv.getContext("2d");
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let W=0,H=0,DPR=1, traces=[], pulses=[], board=null, staticLayer=null, led=0, last=0, raf=0;
+  const G=24, rnd=(a,b)=>a+Math.random()*(b-a), pick=a=>a[Math.floor(Math.random()*a.length)];
+  const theme=()=>document.documentElement.dataset.theme==="light";
+  const col=()=> theme()
+    ? {trace:"rgba(40,62,120,.075)",via:"rgba(40,62,120,.13)",board:"rgba(40,62,120,.10)",fill:"rgba(40,62,120,.025)",text:"rgba(40,62,120,.16)",pulse:[63,95,184],ok:[47,138,95],bad:[185,69,69]}
+    : {trace:"rgba(150,170,215,.06)",via:"rgba(150,170,215,.12)",board:"rgba(150,170,215,.10)",fill:"rgba(150,170,215,.02)",text:"rgba(150,170,215,.14)",pulse:[120,150,225],ok:[80,170,125],bad:[205,100,100]};
+
+  function poly(pts){ let L=0; const seg=[]; for(let i=1;i<pts.length;i++){ const d=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]); seg.push(d); L+=d; } return {pts,seg,L}; }
+  function at(tr,t){ let d=t; for(let i=0;i<tr.seg.length;i++){ if(d<=tr.seg[i]){ const a=tr.pts[i],b=tr.pts[i+1],k=tr.seg[i]?d/tr.seg[i]:0; return [a[0]+(b[0]-a[0])*k,a[1]+(b[1]-a[1])*k]; } d-=tr.seg[i]; } return tr.pts[tr.pts.length-1]; }
+  const inBoard=(x,y,m=14)=>board && x>board.x-m && x<board.x+board.w+m && y>board.y-m && y<board.y+board.h+m;
+
+  // Traço estilo PCB: segmentos retos com dobras de 45°
+  function route(x,y,dir,n){
+    const pts=[[x,y]]; let dx=dir[0], dy=dir[1];
+    for(let i=0;i<n;i++){
+      const len=Math.round(rnd(2,10))*G; x+=dx*len; y+=dy*len; pts.push([x,y]);
+      if(i<n-1){ const s=Math.random()<.5?1:-1, dl=Math.round(rnd(1,3))*G;
+        if(dx){ x+=dx*dl; y+=s*dl; } else { x+=s*dl; y+=dy*dl; } pts.push([x,y]); }
+    }
+    return pts;
+  }
+
+  function build(){
+    DPR=Math.min(2,window.devicePixelRatio||1); W=innerWidth; H=innerHeight;
+    cv.width=W*DPR; cv.height=H*DPR; cv.style.width=W+"px"; cv.style.height=H+"px";
+    // placa DOIT ESP32 DEVKIT V1 à direita
+    const s=Math.max(.7,Math.min(1.15,H/760)), bw=170*s, bh=360*s;
+    board={x:W<820?W/2-bw/2:W-bw-Math.max(60,W*.06), y:H/2-bh/2+20, w:bw, h:bh, s};
+    traces=[];
+    // trilhas saindo dos pinos da placa
+    const pins=15, py=i=>board.y+bh*.24+i*(bh*.7/(pins-1));
+    for(let i=0;i<pins;i++){
+      if(Math.random()<.85) traces.push({...poly(route(board.x-6*s,py(i),[-1,0],Math.round(rnd(2,4)))),src:1});
+      if(Math.random()<.6) traces.push({...poly(route(board.x+bw+6*s,py(i),[1,0],Math.round(rnd(1,3)))),src:1});
+    }
+    // trilhas soltas pela tela
+    const n=Math.round(W*H/38000);
+    for(let i=0;i<n;i++){
+      const x=Math.round(rnd(0,W)/G)*G, y=Math.round(rnd(0,H)/G)*G;
+      if(inBoard(x,y,60)) continue;
+      const tr=poly(route(x,y,pick([[1,0],[-1,0],[0,1],[0,-1]]),Math.round(rnd(2,4))));
+      if(tr.pts.some(p=>inBoard(p[0],p[1]))) continue;
+      traces.push({...tr,src:0});
+    }
+    drawStatic();
+  }
+
+  function drawStatic(){
+    const c=col(); staticLayer=document.createElement("canvas"); staticLayer.width=cv.width; staticLayer.height=cv.height;
+    const g=staticLayer.getContext("2d"); g.scale(DPR,DPR); g.lineCap="round"; g.lineJoin="round";
+    // trilhas + vias
+    g.strokeStyle=c.trace; g.lineWidth=2;
+    for(const t of traces){ g.beginPath(); t.pts.forEach((p,i)=>i?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1])); g.stroke(); }
+    for(const t of traces){ const e=t.pts[t.pts.length-1]; g.beginPath(); g.arc(e[0],e[1],3.6,0,7); g.strokeStyle=c.via; g.lineWidth=1.6; g.stroke(); g.strokeStyle=c.trace; g.lineWidth=2; }
+    // placa
+    const {x,y,w,h,s}=board; const R=(X,Y,Ww,Hh,r)=>{ g.beginPath(); g.roundRect(X,Y,Ww,Hh,r); };
+    g.lineWidth=1.5; g.strokeStyle=c.board; g.fillStyle=c.fill;
+    R(x,y,w,h,10*s); g.fill(); g.stroke();
+    // furos de fixação
+    [[x+10*s,y+10*s],[x+w-10*s,y+10*s],[x+10*s,y+h-10*s],[x+w-10*s,y+h-10*s]].forEach(([a,b])=>{ g.beginPath(); g.arc(a,b,4*s,0,7); g.stroke(); });
+    // barras de pinos (15 de cada lado)
+    for(let i=0;i<15;i++){ const yy=y+h*.24+i*(h*.7/14);
+      [x+11*s,x+w-11*s].forEach(xx=>{ g.beginPath(); g.rect(xx-4.5*s,yy-4.5*s,9*s,9*s); g.stroke(); g.beginPath(); g.arc(xx,yy,2*s,0,7); g.fillStyle=c.via; g.fill(); });
+      g.beginPath(); g.moveTo(x-6*s,yy); g.lineTo(x+6.5*s,yy); g.moveTo(x+w-6.5*s,yy); g.lineTo(x+w+6*s,yy); g.strokeStyle=c.trace; g.lineWidth=2; g.stroke(); g.lineWidth=1.5; g.strokeStyle=c.board; }
+    // módulo ESP32-WROOM com antena
+    const mx=x+w*.2, my=y+h*.03, mw=w*.6, mh=h*.42;
+    R(mx,my,mw,mh,4*s); g.stroke();
+    g.beginPath(); let ax=mx+mw*.12, ay=my+mh*.1; g.moveTo(ax,ay);
+    for(let k=0;k<3;k++){ ay+=0; g.lineTo(ax+mw*.76,ay); ay+=mh*.045; g.lineTo(ax+mw*.76,ay); g.lineTo(ax,ay); ay+=mh*.045; g.lineTo(ax,ay); }
+    g.stroke();
+    R(mx+mw*.08,my+mh*.42,mw*.84,mh*.52,3*s); g.stroke();   // blindagem metálica
+    g.fillStyle=c.text; g.font=`600 ${9*s}px Inter,system-ui`; g.textAlign="center";
+    g.fillText("ESP32-WROOM-32",mx+mw/2,my+mh*.66); g.font=`500 ${7*s}px Inter,system-ui`; g.fillText("Wi-Fi · BT",mx+mw/2,my+mh*.78);
+    // botões EN / BOOT, LED e USB
+    [[x+w*.28,y+h*.86,"EN"],[x+w*.72,y+h*.86,"BOOT"]].forEach(([a,b,t])=>{ R(a-11*s,b-8*s,22*s,16*s,3*s); g.stroke(); g.beginPath(); g.arc(a,b,4*s,0,7); g.stroke(); g.font=`600 ${6.5*s}px Inter`; g.fillText(t,a,b+16*s); });
+    R(x+w/2-18*s,y+h-14*s,36*s,18*s,3*s); g.stroke();       // micro USB
+    g.font=`700 ${8*s}px Inter,system-ui`; g.fillText("DOIT ESP32 DEVKIT V1",x+w/2,y+h*.53);
+    // chip USB-serial
+    R(x+w/2-12*s,y+h*.6,24*s,24*s,2*s); g.stroke();
+    board.led=[x+w*.5,y+h*.79];
+  }
+
+  function spawn(src, color, speed){
+    const pool=traces.filter(t=>src==null||t.src===src); if(!pool.length) return;
+    const t=pick(pool); pulses.push({t, d:0, v:speed||rnd(70,150), c:color||col().pulse, rev: t.src===0 && Math.random()<.5});
+  }
+  window.bgBurst=function(ok){ if(!traces.length) return; const c=ok?col().ok:col().bad; for(let i=0;i<14;i++) setTimeout(()=>spawn(1,c,rnd(160,260)),i*40); led=1; };
+
+  function frame(ts){
+    raf=requestAnimationFrame(frame);
+    if(document.hidden || ts-last<33) return;   // ~30 fps
+    const dt=Math.min(.1,(ts-last)/1000); last=ts;
+    if(Math.random()<.06) spawn(1); if(Math.random()<.035) spawn(0);
+    ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,cv.width,cv.height); ctx.drawImage(staticLayer,0,0); ctx.setTransform(DPR,0,0,DPR,0,0);
+    for(const p of pulses){
+      p.d+=p.v*dt; const [r,g,b]=p.c;
+      for(let k=0;k<6;k++){ const dd=p.d-k*7; if(dd<0) break; const q=at(p.t,p.rev?p.t.L-dd:dd); ctx.beginPath(); ctx.arc(q[0],q[1],k?2.2-k*.25:2.8,0,7); ctx.fillStyle=`rgba(${r},${g},${b},${(k?.28:.55)*(1-k/6)})`; ctx.fill(); }
+      if(p.d>=p.t.L){ const e=p.rev?p.t.pts[0]:p.t.pts[p.t.pts.length-1]; ctx.beginPath(); ctx.arc(e[0],e[1],5,0,7); ctx.fillStyle=`rgba(${r},${g},${b},.18)`; ctx.fill(); }
+    }
+    pulses=pulses.filter(p=>p.d<p.t.L+20);
+    // LED azul da placa pisca quando há atividade
+    if(board.led){ led=Math.max(0,led-dt*1.2); const a=.10+.5*led; const [lx,ly]=board.led; const c=col().pulse;
+      ctx.beginPath(); ctx.arc(lx,ly,3*board.s,0,7); ctx.fillStyle=`rgba(${c[0]},${c[1]},${c[2]},${a})`; ctx.fill(); }
+    if(pulses.some(p=>p.t.src===1 && p.d<8)) led=Math.max(led,.35);
+  }
+
+  let rt; addEventListener("resize",()=>{ clearTimeout(rt); rt=setTimeout(build,150); });
+  new MutationObserver(()=>{ if(board) drawStatic(); }).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+  build();
+  if(reduce){ ctx.drawImage(staticLayer,0,0); } else raf=requestAnimationFrame(frame);
+})();
+
+/* =================== Início =================== */
+syncTools();
+BASE = (store("fbUrl") || DEFAULT_URL).replace(/\/+$/,""); SECRET = store("fbSecret") || "";
+$("cUrl").value=BASE; $("cSec").value=SECRET;
+API_KEY = store("apiKey") || DEFAULT_API_KEY; $("cKey").value=API_KEY; loadAuth();
+go(store("aba")||"geral");
+if(/SEU-PROJETO/.test(BASE)){ go("config"); setTimeout(()=>toast("Configure a URL do seu Firebase em Conexão com o Firebase e clique em Reconectar","bad"),400); }
+ensureAuth().then(ok=>{ if(ok){ connectStream(); setTimeout(()=>{ if(!ready && !$("login").classList.contains("on")) startPolling(); }, 4000); } });   // se o tempo real não abrir, usa atualização periódica
+</script>
+</body>
+</html>

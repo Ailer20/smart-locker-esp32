@@ -1,0 +1,5 @@
+# Bibliotecas do projeto Smart Locker
+MFRC522
+ArduinoJson
+LiquidCrystal I2C
+ESP32Servo

@@ -1,0 +1,11 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "locker": {
+      ".read":  "auth != null && auth.token.email == '__EMAIL_ADMIN__'",
+      ".write": "auth != null && auth.token.email == '__EMAIL_ADMIN__'",
+      "eventos": { ".indexOn": ["servidorTs"] }
+    }
+  }
+}

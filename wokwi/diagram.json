@@ -1,0 +1,618 @@
+{
+  "version": 1,
+  "author": "Smart Locker Lab",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-breadboard",
+      "id": "bb1",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 6.45,
+      "left": 79.65,
+      "attrs": {},
+      "rotate": 270
+    },
+    {
+      "type": "board-mfrc522",
+      "id": "rfid",
+      "top": -211.79,
+      "left": 53.6,
+      "attrs": {
+        "uid": "11:22:33:44"
+      },
+      "rotate": 270
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -114,
+      "left": 248.6,
+      "attrs": {
+        "volume": "0.2"
+      }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": -400,
+      "left": 70,
+      "attrs": {
+        "pins": "i2c",
+        "background": "blue",
+        "color": "white"
+      }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": 285.26,
+      "left": 75.0,
+      "attrs": {},
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo2",
+      "top": 285.26,
+      "left": 199.8,
+      "attrs": {},
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo3",
+      "top": 285.26,
+      "left": 324.6,
+      "attrs": {},
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo4",
+      "top": 285.26,
+      "left": 449.4,
+      "attrs": {},
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 261,
+      "left": -193.31,
+      "attrs": {
+        "color": "green",
+        "label": "C1",
+        "key": "1"
+      },
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 261,
+      "left": -123.31,
+      "attrs": {
+        "color": "yellow",
+        "label": "C2",
+        "key": "2"
+      },
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 261,
+      "left": -53.31,
+      "attrs": {
+        "color": "blue",
+        "label": "C3",
+        "key": "3"
+      },
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn4",
+      "top": 261,
+      "left": 16.69,
+      "attrs": {
+        "color": "red",
+        "label": "C4",
+        "key": "4"
+      },
+      "rotate": 90
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "esp:D23",
+      "bb1:4t.b",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D22",
+      "bb1:5t.b",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D21",
+      "bb1:8t.b",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D19",
+      "bb1:9t.b",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D18",
+      "bb1:10t.b",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D5",
+      "bb1:11t.b",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:TX2",
+      "bb1:12t.b",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:RX2",
+      "bb1:13t.b",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D4",
+      "bb1:14t.b",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D2",
+      "bb1:15t.b",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D15",
+      "bb1:16t.b",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "bb1:17t.b",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:3V3",
+      "bb1:18t.b",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D32",
+      "bb1:9b.j",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D33",
+      "bb1:10b.j",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D25",
+      "bb1:11b.j",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D26",
+      "bb1:12b.j",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D27",
+      "bb1:13b.j",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D14",
+      "bb1:14b.j",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D12",
+      "bb1:15b.j",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:D13",
+      "bb1:16b.j",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:GND.2",
+      "bb1:17b.j",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:VIN",
+      "bb1:18b.j",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "esp:VIN",
+      "bb1:bp.50",
+      "red",
+      [
+        "v8.1",
+        "h413.6"
+      ]
+    ],
+    [
+      "esp:GND.2",
+      "bb1:bn.49",
+      "black",
+      [
+        "v12.1",
+        "h413.6"
+      ]
+    ],
+    [
+      "bb1:bp.50",
+      "bb1:tp.50",
+      "red",
+      [
+        "h65.2",
+        "v-174.0"
+      ]
+    ],
+    [
+      "bb1:17t.a",
+      "bb1:tn.13",
+      "black",
+      []
+    ],
+    [
+      "bb1:tn.13",
+      "rfid:GND",
+      "black",
+      []
+    ],
+    [
+      "bb1:12t.a",
+      "rfid:SDA",
+      "green",
+      []
+    ],
+    [
+      "bb1:13t.a",
+      "rfid:SCK",
+      "yellow",
+      []
+    ],
+    [
+      "bb1:14t.a",
+      "rfid:MOSI",
+      "blue",
+      []
+    ],
+    [
+      "bb1:15t.a",
+      "rfid:MISO",
+      "purple",
+      []
+    ],
+    [
+      "bb1:18t.a",
+      "rfid:RST",
+      "orange",
+      []
+    ],
+    [
+      "rfid:3.3V",
+      "rfid:RST",
+      "orange",
+      [
+        "v6",
+        "h-9.6"
+      ]
+    ],
+    [
+      "bb1:16t.a",
+      "bz1:2",
+      "purple",
+      [
+        "v-11",
+        "h115.6"
+      ]
+    ],
+    [
+      "bz1:1",
+      "bb1:tn.21",
+      "black",
+      []
+    ],
+    [
+      "bb1:4t.a",
+      "lcd:SDA",
+      "blue",
+      [
+        "v-400",
+        "h19.2"
+      ]
+    ],
+    [
+      "bb1:5t.a",
+      "lcd:SCL",
+      "cyan",
+      [
+        "v-390.5",
+        "h9.6"
+      ]
+    ],
+    [
+      "bb1:tp.1",
+      "lcd:VCC",
+      "red",
+      [
+        "v-370.8",
+        "h28.0"
+      ]
+    ],
+    [
+      "bb1:tn.1",
+      "lcd:GND",
+      "black",
+      [
+        "h-10.0",
+        "v-390.3",
+        "h38"
+      ]
+    ],
+    [
+      "esp:D27",
+      "servo1:PWM",
+      "orange",
+      [
+        "v25.6",
+        "h9.6"
+      ]
+    ],
+    [
+      "bb1:bp.11",
+      "servo1:V+",
+      "red",
+      []
+    ],
+    [
+      "bb1:bn.12",
+      "servo1:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D14",
+      "servo2:PWM",
+      "orange",
+      [
+        "v22.1",
+        "h124.8"
+      ]
+    ],
+    [
+      "bb1:bp.22",
+      "servo2:V+",
+      "red",
+      []
+    ],
+    [
+      "bb1:bn.23",
+      "servo2:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D12",
+      "servo3:PWM",
+      "orange",
+      [
+        "v18.6",
+        "h240.0"
+      ]
+    ],
+    [
+      "bb1:bp.33",
+      "servo3:V+",
+      "red",
+      []
+    ],
+    [
+      "bb1:bn.34",
+      "servo3:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D13",
+      "servo4:PWM",
+      "orange",
+      [
+        "v15.1",
+        "h355.2"
+      ]
+    ],
+    [
+      "bb1:bp.44",
+      "servo4:V+",
+      "red",
+      []
+    ],
+    [
+      "bb1:bn.45",
+      "servo4:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D32",
+      "btn1:1.l",
+      "limegreen",
+      [
+        "v11.1",
+        "h-252.8"
+      ]
+    ],
+    [
+      "esp:D33",
+      "btn2:1.l",
+      "gold",
+      [
+        "v15.1",
+        "h-192.4"
+      ]
+    ],
+    [
+      "esp:D25",
+      "btn3:1.l",
+      "violet",
+      [
+        "v19.1",
+        "h-132.0"
+      ]
+    ],
+    [
+      "esp:D26",
+      "btn4:1.l",
+      "magenta",
+      [
+        "v23.1",
+        "h-71.6"
+      ]
+    ],
+    [
+      "btn1:2.r",
+      "btn2:2.r",
+      "black",
+      [
+        "v7.97",
+        "h70.0"
+      ]
+    ],
+    [
+      "btn2:2.r",
+      "btn3:2.r",
+      "black",
+      [
+        "v7.97",
+        "h70.0"
+      ]
+    ],
+    [
+      "btn3:2.r",
+      "btn4:2.r",
+      "black",
+      [
+        "v7.97",
+        "h70.0"
+      ]
+    ],
+    [
+      "btn4:2.r",
+      "bb1:bn.5",
+      "black",
+      [
+        "v7.97",
+        "h43.4",
+        "v-128.7"
+      ]
+    ]
+  ],
+  "dependencies": {}
+}

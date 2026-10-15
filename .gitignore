@@ -1,0 +1,23 @@
+# Gerados pelos scripts
+publico/
+database.rules.json
+gravar-log.txt
+build/
+*.bin
+*.elf
+
+# Ferramentas locais
+.firebase/
+node_modules/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Scripts para publicar no GitHub (ficam so no computador)
+PUBLICAR-GITHUB.bat
+publicar-github.ps1
+commit-msg.txt
+
+# Nunca versionar segredos
+segredos.h
+*.secret
