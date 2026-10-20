@@ -96,14 +96,14 @@ O que as regras fazem:
 
 | Tela | O que faz |
 |---|---|
-| **Visão geral** | Wi-Fi do ESP32 (rede, sinal, IP), aberturas e negados do dia, os 4 compartimentos (com abertura remota), gráfico de 24 h e atividade **ao vivo** |
+| **Visão geral** | Wi-Fi do ESP32 (rede, sinal, IP), reprodução do visor LCD, aberturas e negados do dia, os 4 compartimentos (com abertura remota), gráfico de 24 h e atividade **ao vivo** |
 | **Usuários** | Cadastro de cartões, permissões C1–C4, **horário de acesso**, **dias da semana**, **data de validade**, ativar ou desativar e excluir |
 | **Eventos** | Histórico completo com filtros e exportação CSV |
 | **Relatórios** | Aberturas por usuário e por compartimento, horários de pico, negados por motivo; **Imprimir / salvar PDF** |
 | **Dispositivo** | Detalhes do Wi-Fi e do ESP32, gráfico do sinal e **Testar fechaduras** (gira cada servo e volta) |
 | **Configurações** | Tempo de abertura, acesso offline, bloqueio geral e conexão |
 
-**Tempo real:** quando alguém abre ou é negado, aparece um aviso no topo, toca um som e o circuito do fundo pisca. Atalhos: **Ctrl+K** abre a busca e as teclas **1–6** trocam de tela.
+**Tempo real:** quando alguém abre ou é negado, aparece um aviso no topo, toca um som, a porta do compartimento abre na tela e o visor do painel mostra a mesma mensagem do LCD. Atalhos: **Ctrl+K** abre a busca e as teclas **1–6** trocam de tela.
 
 ### Regras de acesso avaliadas pelo ESP32
 O ESP32 avalia, nesta ordem:
