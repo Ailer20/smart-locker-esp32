@@ -106,15 +106,18 @@ Arquivo único, sem framework.
 - **Estado:**
   - `data` espelha `/locker`;
   - `onChange` aplica os eventos `put`/`patch` do stream;
-  - `onNewEvent` dispara o aviso ao vivo, o som e a rajada no fundo (`bgBurst`).
+  - `onNewEvent` dispara o aviso ao vivo, o som e a mensagem no visor (`lcdShow`).
 - **Renderização:**
   - `render()` roda a cada mudança e a cada 1 s.
   - Use **`setHTML(el, html)`**, que só troca o DOM quando o HTML muda. Trocar o `innerHTML` direto em listas com botões faz os cliques se perderem.
+  - As 4 portas (`renderLockers`) são montadas uma vez e atualizadas no lugar, para a abertura animar.
 - **Login:** só é exigido quando existe uma chave de API (`apiKey` no localStorage ou `DEFAULT_API_KEY`). Sem ela, o painel funciona no modo aberto (regras de teste).
 - **Visual:**
-  - O tema é feito com tokens CSS em `:root` e `[data-theme=light]`.
-  - A paleta é **sóbria de propósito**: o dono do projeto pediu para evitar cores neon.
-  - O fundo animado é um `<canvas id="bgfx">` com trilhas de PCB e a placa DOIT desenhada.
+  - O tema é feito com tokens CSS em `:root` (claro) e `[data-theme=dark]`. Sem preferência salva, segue o tema do sistema.
+  - A paleta é **sóbria de propósito**: o dono do projeto pediu para evitar cores neon. Tons quentes (papel e grafite), azul-tinta como destaque e verde/vermelho só para liberado/negado.
+  - O dono também pediu para o painel ter **menos cara de IA**. Não use faixa lateral colorida em avisos ou cartões, vidro (`backdrop-filter`), brilho, degradê chamativo, fundo animado nem ícones dentro de quadradinhos coloridos. A cor de estado fica num ponto pequeno.
+  - Fontes: IBM Plex Sans (texto) e IBM Plex Mono (UID, IP, horários).
+  - **Visor:** `<canvas id="lcd">` reproduz o LCD 16x2 com uma fonte 5x7. `lcdTexto()` traduz cada evento para as mesmas mensagens do sketch. Se mudar um texto do LCD no firmware, atualize lá também.
 - **Atalhos:** `Ctrl+K` abre a paleta de comandos e as teclas `1`–`6` trocam de tela.
 
 ## Como testar
